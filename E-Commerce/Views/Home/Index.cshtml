@@ -1,0 +1,15 @@
+﻿@using E_Commerce.Models
+@model IEnumerable<SanPham>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layout/HomeLayout.cshtml";
+}
+
+@{ 
+    IEnumerable<SanPham> lsSPM = (IEnumerable<SanPham>)ViewBag.lsSPM;
+}
+<div class="container">
+    @Html.Partial("~/Views/SanPham/SanPhamParticial.cshtml", lsSPM)
+</div>

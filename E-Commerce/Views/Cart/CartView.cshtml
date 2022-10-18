@@ -1,0 +1,96 @@
+﻿@using E_Commerce.Models
+@model List<CartItem>
+@{
+    ViewBag.Title = "CartView";
+    Layout = "~/Views/Layout/Cart.cshtml";
+}
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+
+@if(Model.Count == 0)
+{
+    <h1>Take more item !</h1>
+}
+else
+{
+    <section class="ftco-section ftco-cart">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 ftco-animate fadeInUp ftco-animated">
+                    <div class="cart-list">
+                        <table class="table">
+                            <thead class="thead-primary">
+                                <tr class="text-center">
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                    <th>Product</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            @foreach (var item in Model)
+                            {
+                                <tbody id="CartItem">
+                                    <tr class="text-center">
+                                        <td class="product-remove">
+                                            @Ajax.ActionLink("x", "RemoveCart", "Cart", new { @MaSP = item.MaSP }, new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "CartItem", InsertionMode = InsertionMode.Replace })
+                                        </td>
+
+                                        <td class="image-prod"><div class="img" style="background-image:url(/Content/images/SanPham/@item.HinhAnh);"></div></td>
+
+                                        <td class="product-name">
+                                            <h3>@item.TenSP</h3>
+                                            <p>Far far away, behind the word mountains, far from the countries</p>
+                                        </td>
+
+                                        <td class="price">@item.DonGia.ToString("#,##")</td>
+
+                                        @*<td class="quantity ">@item.SoLuong</td>*@
+
+                                        <td class="quantity">
+                                            <div class="input-group mb-3">
+                                                @Html.TextBox("SoLuong", item.SoLuong, new { @class = "quantity form-control input-number" })
+                                            </div>
+                                        </td>
+
+
+                                        <td class="total">@item.TongTien.ToString("#,##")</td>
+                                    </tr><!-- END TR-->
+
+                                </tbody>
+                            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-start">
+                <div class="col col-lg-5 col-md-6 mt-5 cart-wrap ftco-animate fadeInUp ftco-animated">
+                    <div class="cart-total mb-3">
+                        <h3>Cart Totals</h3>
+                        <p class="d-flex">
+                            <span>Subtotal</span>
+                            <span>$20.60</span>
+                        </p>
+                        <p class="d-flex">
+                            <span>Delivery</span>
+                            <span>$0.00</span>
+                        </p>
+                        <p class="d-flex">
+                            <span>Discount</span>
+                            <span>$3.00</span>
+                        </p>
+                        <hr>
+                        <p class="d-flex total-price">
+                            <span>Total</span>
+                            <span></span>
+                        </p>
+                    </div>
+                    @Html.ActionLink("Proceed to Checkout", "Order",null, new { @class = "btn btn-primary py-3 px-4" }) 
+                   
+                </div>
+            </div>
+        </div>
+    </section>
+
+}
+

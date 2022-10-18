@@ -1,0 +1,57 @@
+﻿@using E_Commerce.Models
+@using PagedList.Mvc
+@model  PagedList.IPagedList<SanPham>
+
+@{
+    ViewBag.Title = "Shop";
+    Layout = "~/Views/Layout/Shop.cshtml";
+}
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-12 col-md-12 col-lg-4 ftco-animate d-flex">
+            <div class="product d-flex flex-column">
+                <a href="@Url.Action("XemChiTiet", "SanPham", new {id=item.MaSP} )" class="img-prod">
+                    <img class="img-fluid" src=@Url.Content("~/Content/images/SanPham/"+item.HinhAnh) alt="Colorlib Template">
+                    <div class="overlay"></div>
+                </a>
+                <div class="text py-3 pb-4 px-3">
+                    <div class="d-flex">
+                        <div class="cat">
+                            <span>Lifestyle</span>
+                        </div>
+                        <div class="rating">
+                            <p class="text-right mb-0">
+                                <a href="#"><span class="ion-ios-star-outline"></span></a>
+                                <a href="#"><span class="ion-ios-star-outline"></span></a>
+                                <a href="#"><span class="ion-ios-star-outline"></span></a>
+                                <a href="#"><span class="ion-ios-star-outline"></span></a>
+                                <a href="#"><span class="ion-ios-star-outline"></span></a>
+                            </p>
+                        </div>
+                    </div>
+                    <h3><a href="#">@item.TenSP</a></h3>
+                    <div class="pricing">
+                        <p class="price"><span>@item.DonGia.Value.ToString("#,##")</span></p>
+                    </div>
+                    <p class="bottom-area d-flex px-3">
+                        <a href="@Url.Action("AddCart", "Cart", new {@MaSP = item.MaSP, @strUrl = Request.Url.ToString()})" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                        <a href="#" class="buy-now text-center py-2">Buy now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
+
+<div class="row mt-5">
+    <div class="col text-center">
+        <div class="block-27">
+            <ul>
+                <li>@Html.PagedListPager(Model, page => Url.Action("Shop", new { page = page, @lsSP = ViewBag.lsSP}))</li>
+            </ul>
+        </div>
+    </div>
+</div>

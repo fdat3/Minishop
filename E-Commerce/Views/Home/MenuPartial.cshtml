@@ -1,0 +1,45 @@
+﻿@using E_Commerce.Models
+
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light scrolled awake" id="ftco-navbar">
+    <div class="container">
+        <a class="navbar-brand" href=@Url.Action("Index", "Home")>Minishop</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="oi oi-menu"></span> Menu
+        </button>
+
+        <div class="collapse navbar-collapse" id="ftco-nav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Catalog</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown04">
+                        <a class="dropdown-item" href="cart.html">Cart</a>
+                        <a class="dropdown-item" href="checkout.html">Checkout</a>
+                    </div>
+                </li>
+                @*Hien thi so luong hang*@
+                <li class="nav-item"><a class="nav-link" href=@Url.Action("Shop", "SanPham")>Shop</a></li>
+                <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                @Html.Action("CartPartial", "Cart")
+                @if (Session["TaiKhoan"] != null && Session["TaiKhoan"] != "")
+                {
+                    ThanhVien tv = (ThanhVien)Session["TaiKhoan"];
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hi, @tv.HoTen</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown04">
+                            <a class="dropdown-item" href="cart.html">Thông tin tài khoản</a>
+                            @Html.ActionLink("Đăng xuất", "DangXuat", "Home", new { @class = "dropdown-item" })
+                        </div>
+                    </li>
+                }
+                else
+                {
+                    <li class="nav-item"><a class="nav-link " href=@Url.Action("DangNhap", "Home")>Login</a></li>
+
+                }
+            </ul>
+        </div>
+    </div>
+</nav>
+

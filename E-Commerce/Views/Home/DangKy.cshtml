@@ -1,0 +1,95 @@
+﻿@using CaptchaMvc.HtmlHelpers
+@using CaptchaMvc
+@using E_Commerce.Models
+@model ThanhVien
+
+@{
+    ViewBag.Title = "DangKy";
+    Layout = "~/Views/Layout/Register.cshtml";
+}
+
+<div class="row justify-content-center">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.ValidationSummary(true)
+
+    <div class="col-xl-10 ftco-animate fadeInUp ftco-animated">
+        <form action="#" class="billing-form">
+            <h3 class="mb-4 billing-heading">THÔNG TIN CÁ NHÂN</h3>
+            <div class="row align-items-end">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="fullname">Họ và Tên</label>
+                        @Html.TextBoxFor(model => model.HoTen, null, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.HoTen)
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="fullname">Tên Tài Khoản</label>
+                        @Html.TextBoxFor(model => model.TaiKhoan, null, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.TaiKhoan)
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        @Html.TextBoxFor(model => model.SoDienThoai, null, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.SoDienThoai)
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="emailaddress">Địa chỉ Email</label>
+                        @Html.TextBoxFor(model => model.Email, null, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Email)
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="password">Mật khẩu</label>
+                        @Html.PasswordFor(model => model.MatKhau, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.MatKhau)
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="password">Nhập lại mật khẩu</label>
+                        @Html.PasswordFor(model => model.MatKhau, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.MatKhau)
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="towncity">Tỉnh / Thành phố</label>
+                        @Html.TextBox("DiaChi", null, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="row mt-5 pt-3 d-flex">
+            <div class="col-md-6">
+                <div class="cart-detail bg-light p-3 p-md-4">
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <div class="checkbox">
+                                <label><input type="checkbox" value="" class="mr-2">Tôi đồng ý với các điều khoản và điều kiện.</label>
+                            </div>
+                        </div>
+                    </div>
+                    <input value="Đăng Ký" type="submit" class="btn btn-primary py-3 px-4" />
+                </div>
+            </div>
+        </div>
+        @ViewBag.ThongBao
+    </div>
+    }
+</div>
+
+
+
+
+
+

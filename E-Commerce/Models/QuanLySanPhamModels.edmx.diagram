@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="11858aa2c241417e9c9f01cb0f61e9c0" Name="Diagram1" ZoomLevel="80">
+        <EntityTypeShape EntityType="QuanLySanPhamModel.BinhLuan" Width="1.5" PointX="5.25" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLySanPhamModel.ChiTietDonDatHang" Width="1.5" PointX="8.25" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLySanPhamModel.ChiTietPhieuNhap" Width="1.5" PointX="5.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLySanPhamModel.DonDatHang" Width="1.5" PointX="6" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLySanPhamModel.KhachHang" Width="1.5" PointX="3.75" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLySanPhamModel.LoaiSanPham" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLySanPhamModel.LoaiThanhVien" Width="1.5" PointX="0.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLySanPhamModel.NhaCungCap" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLySanPhamModel.NhaSanXuat" Width="1.5" PointX="0.75" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLySanPhamModel.PhieuNhap" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLySanPhamModel.SanPham" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLySanPhamModel.ThanhVien" Width="1.5" PointX="3" PointY="14.125" IsExpanded="true" />
+        <AssociationConnector Association="QuanLySanPhamModel.FK_BinhLuan_SanPham" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLySanPhamModel.FK_BinhLuan_ThanhVien" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLySanPhamModel.FK_ChiTietDonDatHang_DonDatHang" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLySanPhamModel.FK_ChiTietDonDatHang_SanPham" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLySanPhamModel.FK_ChiTietPhieuNhap_PhieuNhap" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLySanPhamModel.FK_ChiTietPhieuNhap_SanPham" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLySanPhamModel.FK_DonDatHang_KhachHang" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLySanPhamModel.FK_KhachHang_ThanhVien" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLySanPhamModel.FK_SanPham_LoaiSanPham" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLySanPhamModel.FK_ThanhVien_LoaiThanhVien" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLySanPhamModel.FK_PhieuNhap_NhaCungCap" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLySanPhamModel.FK_SanPham_NhaCungCap" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLySanPhamModel.FK_SanPham_NhaSanXuat" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
