@@ -25,6 +25,12 @@ namespace E_Commerce.Controllers
             ViewBag.keyword = keyword;
             return View(lsSP.OrderBy(n => n.TenSP).ToPagedList(pageNumber,pageSize));
         }
+        public ActionResult MiniSearch()
+        {
+            var lsSP = db.SanPhams;
+            return PartialView(lsSP);
+        }
+
         [HttpPost]
         public ActionResult TakeKeyword(string keyword)
         {

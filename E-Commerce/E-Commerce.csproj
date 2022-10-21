@@ -486,6 +486,7 @@
     <Content Include="Views\Cart\CartView.cshtml" />
     <Content Include="Views\Cart\CartPartial.cshtml" />
     <Content Include="Views\Search\SearchResult.cshtml" />
+    <Content Include="Views\Search\MiniSearch.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Shared\" />

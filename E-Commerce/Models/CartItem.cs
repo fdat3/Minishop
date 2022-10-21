@@ -23,6 +23,7 @@ namespace E_Commerce.Models
                 this.TenSP = sp.TenSP;
                 this.HinhAnh = sp.HinhAnh;
                 this.DonGia = sp.DonGia.Value;
+                this.SoLuong = 1;
                 this.TongTien = DonGia * SoLuong;
             }
         }

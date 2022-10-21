@@ -31,7 +31,7 @@ namespace E_Commerce.Controllers
             return lstCart;
         }
         // Phuong thuc them gio hang
-        public ActionResult AddCart(int MaSP, string strURL)
+        public ActionResult AddCart(int MaSP)
         {
             //Check san pham da ton tai trong DB hay chua
             SanPham sp = db.SanPhams.SingleOrDefault(n => n.MaSP == MaSP);
@@ -82,8 +82,8 @@ namespace E_Commerce.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
-            lstCart.Remove(CheckItem);  
-            return null;
+            lstCart.Remove(CheckItem);
+            return Content("");
         }
 
         // Phuong thuc tong so tien phai thanh toan

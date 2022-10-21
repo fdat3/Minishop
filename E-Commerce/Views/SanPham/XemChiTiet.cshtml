@@ -1,10 +1,11 @@
 ﻿@using E_Commerce.Models
 @model SanPham
-
 @{
     ViewBag.Title = "XemChiTiet";
     Layout = "~/Views/Layout/ProductLayout.cshtml";
 }
+
+
 
 <div class="row">
     <div class="col-lg-6 mb-5 ftco-animate fadeInUp ftco-animated">
@@ -48,18 +49,8 @@
                 </div>
             </div>
             <div class="w-100"></div>
-            <div class="input-group col-md-6 d-flex mb-3">
-                <span class="input-group-btn mr-2">
-                    <button type="button" class="quantity-left-minus btn" data-type="minus" data-field="">
-                        <i class="ion-ios-remove"></i>
-                    </button>
-                </span>
+            <div class="input-group col-md-6 mb-3">
                 <input type="text" id="quantity" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">
-                <span class="input-group-btn ml-2">
-                    <button type="button" class="quantity-right-plus btn" data-type="plus" data-field="">
-                        <i class="ion-ios-add"></i>
-                    </button>
-                </span>
             </div>
             <div class="w-100"></div>
             <div class="col-md-12">
@@ -231,4 +222,3 @@
         </div>
     </div>
 </div>
-
