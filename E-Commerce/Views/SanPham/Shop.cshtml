@@ -7,6 +7,8 @@
     Layout = "~/Views/Layout/Shop.cshtml";
 }
 
+
+
 <div class="row">
     @foreach (var item in Model)
     {
@@ -50,7 +52,7 @@
     <div class="col text-center">
         <div class="block-27">
             <ul>
-                <li>@Html.PagedListPager(Model, page => Url.Action("Shop", new { page = page, @lsSP = ViewBag.lsSP}))</li>
+                <li>@Html.PagedListPager(Model, page => Url.Action("Shop", new { page = page, @lsSP = ViewBag.lsSP }))</li>
             </ul>
         </div>
     </div>

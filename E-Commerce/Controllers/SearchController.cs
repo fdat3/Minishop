@@ -25,10 +25,11 @@ namespace E_Commerce.Controllers
             ViewBag.keyword = keyword;
             return View(lsSP.OrderBy(n => n.TenSP).ToPagedList(pageNumber,pageSize));
         }
-        public ActionResult MiniSearch()
+
+        public ActionResult MiniSearch(int? MaLoaiSP, int? MaNSX)
         {
-            var lsSP = db.SanPhams;
-            return PartialView(lsSP);
+            var lstSP = db.SanPhams.Where(n => n.MaLoaiSP == MaLoaiSP && n.MaNSX == MaNSX);
+            return View(lstSP);
         }
 
         [HttpPost]
