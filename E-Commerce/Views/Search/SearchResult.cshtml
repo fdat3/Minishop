@@ -2,13 +2,12 @@
 @using PagedList.Mvc
 @model  PagedList.IPagedList<SanPham>
 @{
+    ViewBag.keyword = "keyword";
     ViewBag.Title = "SearchResult";
     Layout = "~/Views/Layout/Shop.cshtml";
 }
-
-
-
-<div class="row">
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<div id="search-result" class="row">
     @foreach (var item in Model)
     {
         <div class="col-sm-12 col-md-12 col-lg-4 ftco-animate d-flex">
@@ -44,7 +43,6 @@
             </div>
         </div>
     }
-
 </div>
 
 <div class="row mt-5">
@@ -56,6 +54,7 @@
         </div>
     </div>
 </div>
+
 
 
 

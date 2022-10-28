@@ -1,6 +1,9 @@
-﻿<li class="nav-item cta cta-colored">
-    <a href=@Url.Action("CartView", "Cart") class="nav-link">
-        <span class="icon-shopping_cart"></span>
-        <span id="Cart">[@ViewBag.TotalItem]</span>
-    </a>
-</li>
+﻿<div id="Cart" style="font-size: 10px; font-weight: 400; color: #000000; text-transform: uppercase; letter-spacing: 2px; opacity: 1 !important;">
+    <li class="nav-item cta cta-colored">
+        <a style="padding:25px;" href=@Url.Action("CartView", "Cart") class="nav-link">
+            <span class="icon-shopping_cart"></span>
+            <span>[@ViewBag.TotalItem]</span>
+        </a>
+    </li>
+</div>
+
