@@ -33,7 +33,7 @@
                     </div>
                     <h3><a href="#">@item.TenSP</a></h3>
                     <div class="pricing">
-                        <p class="price"><span>@item.DonGia.Value.ToString("#,##")</span></p>
+                        <p class="price"><span>@item.DonGia.Value.ToString("#,##") VND</span></p>
                     </div>
                     <p class="bottom-area d-flex px-3">
                         <a href="@Url.Action("AddCart", "Cart", new {@MaSP = item.MaSP, @strUrl = Request.Url.ToString()})" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>

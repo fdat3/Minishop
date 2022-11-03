@@ -27,11 +27,7 @@ namespace E_Commerce.Models
         public Nullable<bool> DaThanhToan { get; set; }
         public Nullable<int> MaKhachHang { get; set; }
         public Nullable<int> UuDai { get; set; }
-
-        public Nullable<bool> DaXoa { get; set; }
-
-        public Nullable<bool> DaHuy { get; set; }
-
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietDonDatHang> ChiTietDonDatHangs { get; set; }
         public virtual KhachHang KhachHang { get; set; }

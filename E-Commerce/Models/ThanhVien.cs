@@ -11,9 +11,7 @@ namespace E_Commerce.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class ThanhVien
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -24,17 +22,11 @@ namespace E_Commerce.Models
         }
     
         public int MaTV { get; set; }
-        [Required(ErrorMessage = "Nhap vao ten tai khoan !")]
         public string TaiKhoan { get; set; }
-        [Required(ErrorMessage = "Nhap vao mat khau !")]
         public string MatKhau { get; set; }
-        [Required(ErrorMessage = "Nhap vao ho va ten !")]
         public string HoTen { get; set; }
         public string DiaChi { get; set; }
-        [Required(ErrorMessage = "Nhap vao so dien thoai !")]
         public string SoDienThoai { get; set; }
-        [Required(ErrorMessage = "Nhap vao Email !")]
-        public string Email { get; set; }
         public Nullable<int> MaLTV { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

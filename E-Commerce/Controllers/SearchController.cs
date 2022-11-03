@@ -23,12 +23,12 @@ namespace E_Commerce.Controllers
             int pageNumber = page ?? 1;
             var lsSP = db.SanPhams.Where(n => n.TenSP.Contains(keyword));
             ViewBag.keyword = keyword;
-            return PartialView(lsSP.OrderBy(n => n.TenSP).ToPagedList(pageNumber,pageSize));
+            return View(lsSP.OrderBy(n => n.TenSP).ToPagedList(pageNumber,pageSize));
         }
 
         public ActionResult MiniSearch(int? MaLoaiSP, int? MaNSX)
         {
-            var lstSP = db.SanPhams.Where(n => n.MaLoaiSP == MaLoaiSP && n.MaNSX == MaNSX);
+            var lstSP = db.SanPhams.Select(n => n.MaLoaiSP == MaLoaiSP && n.MaNSX == MaNSX).ToList();
             return View(lstSP);
         }
 

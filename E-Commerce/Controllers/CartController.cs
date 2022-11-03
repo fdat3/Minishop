@@ -83,7 +83,7 @@ namespace E_Commerce.Controllers
                 return RedirectToAction("Index", "Home");
             }
             lstCart.Remove(CheckItem);
-            return Content("");
+            return PartialView("CartPartial");
         }
 
         // Phuong thuc tong so tien phai thanh toan
@@ -164,8 +164,7 @@ namespace E_Commerce.Controllers
             ddh.TinhTrangDH = false;
             ddh.DaThanhToan = false;
             ddh.UuDai = 0;
-            ddh.DaXoa = false;
-            ddh.DaHuy = false;
+            
             // Add to Database
             db.DonDatHangs.Add(ddh);
             //Sync
