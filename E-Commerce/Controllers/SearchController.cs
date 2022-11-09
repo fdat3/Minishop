@@ -26,10 +26,18 @@ namespace E_Commerce.Controllers
             return View(lsSP.OrderBy(n => n.TenSP).ToPagedList(pageNumber,pageSize));
         }
 
-        public ActionResult MiniSearch(int? MaLoaiSP, int? MaNSX)
+        public ActionResult MiniSearch(int? MaLoaiSP, int? page)
         {
-            var lstSP = db.SanPhams.Select(n => n.MaLoaiSP == MaLoaiSP && n.MaNSX == MaNSX).ToList();
-            return View(lstSP);
+            if (Request.HttpMethod != "GET")
+            {
+                page = 1;
+            }
+            int pageSize = 10;
+            int pageNumber = page ?? 1;
+
+
+            var lstSP = db.SanPhams.Where(n => n.MaLoaiSP == MaLoaiSP).ToList();
+            return View(lstSP.ToPagedList(pageNumber, pageSize));
         }
 
         [HttpPost]

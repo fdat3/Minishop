@@ -12,8 +12,7 @@
     <section class="ftco-section ftco-cart">
         <div class="container">
             <div class="row">
-                <div class="col-md-12 ftco-animate fadeInUp ftco-animated">
-                    <img src="~/Content/images/bg/"
+                <div class="col-md-12 ftco-animate fadeInUp ftco-animatedr">
                     <h1 class="text-center">Giỏ hàng của bạn đang trống ! Hãy mua thêm đi nào !</h1>
                 </div>
             </div>
@@ -92,7 +91,7 @@ else
                         <hr>
                         <p class="d-flex total-price">
                             <span>Total</span>
-                            <span></span>
+                            <span>@ViewBag.TotalBill</span>
                         </p>
                     </div>
                     @Html.ActionLink("Proceed to Checkout", "Order",null, new { @class = "btn btn-primary py-3 px-4" }) 

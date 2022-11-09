@@ -3,12 +3,17 @@
     Layout = "~/Views/Layout/Register.cshtml";
 }
 
+@using E_Commerce.Models
+@model ThanhVien
 
 
 @ViewBag.ErrorMessage
 <div class="row align-content-center">
     @using (Html.BeginForm("DangNhap", "Home"))
     {
+        @Html.AntiForgeryToken()
+
+        @Html.ValidationSummary(true)
 
         <div class="col-xl-10 ftco-animate fadeInUp ftco-animated">
             <form action="#" class="billing-form">
@@ -18,6 +23,7 @@
                         <div class="form-group">
                             <label for="fullname">Tên Tài Khoản</label>
                             @Html.TextBox("TaiKhoan", null, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.TaiKhoan)
                         </div>
                     </div>
                     <div class="w-100"></div>
@@ -26,6 +32,7 @@
                         <div class="form-group">
                             <label for="password">Mật khẩu</label>
                             @Html.Password("MatKhau", null, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.MatKhau)
                         </div>
                     </div>
 
@@ -40,6 +47,7 @@
                 </div>
             </div>
         </div>
+        @ViewBag.ErrorMessage
         // QR Scan and Another Login Method
     }
 </div>

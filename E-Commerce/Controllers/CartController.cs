@@ -15,6 +15,7 @@ namespace E_Commerce.Controllers
         public ActionResult CartView()
         {
             List<CartItem> lstCart = GetCart();
+            ViewBag.TotalBill = TotalBill();
             return View(lstCart);
         }
 
@@ -66,7 +67,7 @@ namespace E_Commerce.Controllers
 
         public ActionResult RemoveCart(int MaSP)
         {
-            if (Session["CartItem"] == null)
+             if (Session["CartItem"] == null)
             {
                 return RedirectToAction("Index", "Home");
             }
@@ -78,10 +79,7 @@ namespace E_Commerce.Controllers
             }
             List<CartItem> lstCart = GetCart();
             CartItem CheckItem = lstCart.SingleOrDefault(n => n.MaSP == MaSP);
-            if (CheckItem == null)
-            {
-                return RedirectToAction("Index", "Home");
-            }
+            
             lstCart.Remove(CheckItem);
             return PartialView("CartPartial");
         }

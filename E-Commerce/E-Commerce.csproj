@@ -254,6 +254,7 @@
     <Content Include="Content\fonts\ionicons\fonts\ionicons.svg" />
     <Content Include="Content\fonts\open-iconic\open-iconic.svg" />
     <Content Include="Content\images\about.jpg" />
+    <Content Include="Content\images\bg\9bdd8040b334d31946f49e36beaf32db.png" />
     <Content Include="Content\images\bg\bg_1.jpg" />
     <Content Include="Content\images\bg\bg_1.png" />
     <Content Include="Content\images\bg\bg_2.png" />

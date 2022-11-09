@@ -28,57 +28,15 @@
                             <div class="panel panel-default">
                                 <div class="panel-heading" role="tab" id="headingOne">
                                     <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                        <a href="@Url.Action("MiniSearch", "Search", new { @MaLoaiSP = lsSP.Key.MaLoaiSP})">
                                             @lsSP.Key.TenLoaiSP
                                         </a>
                                     </h4>
                                 </div>
-                                <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                    <div class="panel-body">
-                                        <ul>
-                                            <li>
-
-                                                @foreach (var item in lsSP.GroupBy(n => n.NhaSanXuat))
-                                                {
-                                                    if (item.Key != null)
-                                                    {
-                                                        @*@Ajax.ActionLink(item.Key.TenNSX, "MiniSearch", "Search", new { @MaLoaiSP = lsSP.Key.MaLoaiSP, @MaNSX = item.Key.MaNSX },
-                                                        new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "itemView", InsertionMode = InsertionMode.Replace })*@
-
-                                                        <a href="@Url.Action("MiniSearch", "Search", new { @MaLoaiSP = lsSP.Key.MaLoaiSP, @MaNSX = item.Key.MaNSX})">@item.Key.TenNSX</a>
-                                                    }
-                                                }
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
                             </div>
                         }
                     }
-
                 </div>
             </div>
         </div>
-
-
-        <div class="sidebar-box-2">
-            <h2 class="heading">Price Range</h2>
-            <form method="post" class="colorlib-form-2">
-                <div class="row">
-                    <div class="form-group">
-                        <div class="form-field">
-                            <div class="col-10 sidebar-box-2">
-                                @foreach (var item in Model)
-                                {
-                                    <a href="@Url.Action("SortPrice", "Search", new { @DonGia = item.DonGia})">Từ @item.DonGia.Value.ToString("#,##") VND</a>
-                                }
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>
     </div>
-</div>
-
-

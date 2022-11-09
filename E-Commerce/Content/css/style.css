@@ -10469,7 +10469,7 @@ textarea.form-control {
   font-size: 12px;
   text-transform: uppercase;
   background: transparent;
-  color: #dbcc8f;
+  color: #black;
   position: relative;
   -webkit-box-shadow: none !important;
   -moz-box-shadow: none !important;
@@ -10486,8 +10486,6 @@ textarea.form-control {
   border: none; }
 
 .panel-heading a:after {
-  font-family: "ionicons";
-  content: "\f3d0";
   position: absolute;
   right: 20px;
   font-size: 11px;
@@ -10681,3 +10679,6 @@ textarea.form-control {
     color: #dbcc8f !important;
 }
 
+a.nav-link {
+    padding: 23px;
+}

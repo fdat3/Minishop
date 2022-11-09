@@ -1,12 +1,19 @@
-﻿@using E_Commerce.Models
-@model  IEnumerable<SanPham>
+﻿
 @{
     ViewBag.Title = "MiniSearch";
     Layout = "~/Views/Layout/Shop.cshtml";
 }
 
-
-<div class="row">
+@using E_Commerce.Models
+@using PagedList.Mvc
+@model  PagedList.IPagedList<SanPham>
+@{
+    ViewBag.keyword = "keyword";
+    ViewBag.Title = "SearchResult";
+    Layout = "~/Views/Layout/Shop.cshtml";
+}
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<div id="search-result" class="row">
     @foreach (var item in Model)
     {
         <div class="col-sm-12 col-md-12 col-lg-4 ftco-animate d-flex">
@@ -42,19 +49,19 @@
             </div>
         </div>
     }
-
 </div>
 
-@*<div class="row mt-5">
-        <div class="col text-center">
-            <div class="block-27">
-                <ul>
-                    <li>@Html.PagedListPager(Model, page => Url.Action("Shop", new { page = page, @keyword = ViewBag.keyword }))</li>
-                </ul>
-            </div>
+<div class="row mt-5">
+    <div class="col text-center">
+        <div class="block-27">
+            <ul>
+                <li>@Html.PagedListPager(Model, page => Url.Action("Shop", new { page = page, @keyword = ViewBag.keyword }))</li>
+            </ul>
         </div>
     </div>
-*@
+</div>
+
+
 
 
 
