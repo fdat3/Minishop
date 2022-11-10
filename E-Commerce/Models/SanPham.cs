@@ -11,15 +11,22 @@ namespace E_Commerce.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Linq;
+
     public partial class SanPham
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        QuanLySanPhamEntities db = null;
         public SanPham()
         {
             this.BinhLuans = new HashSet<BinhLuan>();
             this.ChiTietDonDatHangs = new HashSet<ChiTietDonDatHang>();
             this.ChiTietPhieuNhaps = new HashSet<ChiTietPhieuNhap>();
+        }
+
+        public List<String> ListName(string keyword)
+        {
+            return db.SanPhams.Where(n => n.TenSP.Contains(keyword)).Select(n => n.TenSP).ToList();
         }
     
         public int MaSP { get; set; }

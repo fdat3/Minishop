@@ -1,4 +1,6 @@
 ﻿<!DOCTYPE html>
+@using E_Commerce.Models
+@model IEnumerable<SanPham>
 
 <html>
 <head>
@@ -7,18 +9,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
-
+    <link href="~/Content/css/jquery-ui.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/Content/css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="~/Content/css/animate.css">
-
     <link rel="stylesheet" href="~/Content/css/owl.carousel.min.css">
     <link rel="stylesheet" href="~/Content/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="~/Content/css/magnific-popup.css">
-
     <link rel="stylesheet" href="~/Content/css/aos.css">
-
     <link rel="stylesheet" href="~/Content/css/ionicons.min.css">
-
     <link rel="stylesheet" href="~/Content/css/bootstrap-datepicker.css">
     <link rel="stylesheet" href="~/Content/css/jquery.timepicker.css">
     <link rel="stylesheet" href="~/Scripts/jquery.unobtrusive-ajax.js">
@@ -72,15 +70,7 @@
     </div>
 
     <section class="ftco-section bg-light">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-lg-10 order-md-last">
-                    @RenderBody()
-                </div>
-
-                @Html.Partial("~/Views/Search/SearchBar.cshtml")
-            </div>
-        </div>
+        @RenderBody()
     </section>
 
     @Html.Partial("~/Views/Home/FooterPartial.cshtml")
@@ -107,7 +97,8 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&amp;sensor=false"></script>
     <script src="~/Content/js/google-map.js"></script>
     <script src="~/Content/js/main.js"></script>
-
-
+    <script src="~/Content/js/jquery-ui.js"></script>
+    <script src="~/Content/js/jquery-3.6.0.js"></script>
+    <script src="~/Content/js/base.js"></script>
 </body>
 </html>

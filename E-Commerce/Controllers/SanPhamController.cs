@@ -41,13 +41,23 @@ namespace E_Commerce.Controllers
 
             return View(sp);
         }
+        
+        public JsonResult ListName(string value)
+        {
+            var data = new SanPham().ListName(value);
+            return Json(new
+            {
+                data = data,
+                status = true
+            },JsonRequestBehavior.AllowGet);
+        }
 
         public ActionResult Shop(int? page)
         {
             var lsSP = db.SanPhams;
             ViewBag.lsSP = lsSP;
             //Number of item in 1 page
-            int PageSize = 3;
+            int PageSize = 9;
             int PageNumber = (page ?? 1);
 
             return View(lsSP.OrderBy(n => n.MaSP).ToPagedList(PageNumber, PageSize));
