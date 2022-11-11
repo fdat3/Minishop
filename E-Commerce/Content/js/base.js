@@ -17,7 +17,7 @@
                         response(res.data);
                     }
                 });
-            }, ,
+            },
             focus: function (event, ui) {
                 $("#txtKeyword").val(ui.item.label);
                 return false;
