@@ -1,0 +1,324 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <style>
+        .LGLeeN-keyboard-shortcuts-view {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex
+        }
+
+            .LGLeeN-keyboard-shortcuts-view table, .LGLeeN-keyboard-shortcuts-view tbody, .LGLeeN-keyboard-shortcuts-view td, .LGLeeN-keyboard-shortcuts-view tr {
+                background: inherit;
+                border: none;
+                margin: 0;
+                padding: 0
+            }
+
+            .LGLeeN-keyboard-shortcuts-view table {
+                display: table
+            }
+
+            .LGLeeN-keyboard-shortcuts-view tr {
+                display: table-row
+            }
+
+            .LGLeeN-keyboard-shortcuts-view td {
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+                display: table-cell;
+                color: #000;
+                padding: 6px;
+                vertical-align: middle;
+                white-space: nowrap
+            }
+
+                .LGLeeN-keyboard-shortcuts-view td .VdnQmO-keyboard-shortcuts-view--shortcut-key {
+                    background-color: #e8eaed;
+                    border-radius: 2px;
+                    border: none;
+                    -moz-box-sizing: border-box;
+                    box-sizing: border-box;
+                    color: inherit;
+                    display: inline-block;
+                    font-family: Google Sans Text,Roboto,Arial,sans-serif;
+                    line-height: 16px;
+                    margin: 0 2px;
+                    min-height: 20px;
+                    min-width: 20px;
+                    padding: 2px 4px;
+                    position: relative;
+                    text-align: center
+                }
+    </style>
+    <style>
+        .gm-control-active > img {
+            box-sizing: content-box;
+            display: none;
+            left: 50%;
+            pointer-events: none;
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%,-50%)
+        }
+
+            .gm-control-active > img:nth-child(1) {
+                display: block
+            }
+
+        .gm-control-active:focus > img:nth-child(1), .gm-control-active:hover > img:nth-child(1), .gm-control-active:active > img:nth-child(1), .gm-control-active:disabled > img:nth-child(1) {
+            display: none
+        }
+
+        .gm-control-active:focus > img:nth-child(2), .gm-control-active:hover > img:nth-child(2) {
+            display: block
+        }
+
+        .gm-control-active:active > img:nth-child(3) {
+            display: block
+        }
+
+        .gm-control-active:disabled > img:nth-child(4) {
+            display: block
+        }
+    </style>
+    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Google+Sans:400,500,700|Google+Sans+Text:400&amp;lang=vi">
+    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans+Text:400&amp;text=%E2%86%90%E2%86%92%E2%86%91%E2%86%93&amp;lang=vi">
+    <style>
+        .gm-ui-hover-effect {
+            opacity: .6
+        }
+
+            .gm-ui-hover-effect:hover {
+                opacity: 1
+            }
+
+            .gm-ui-hover-effect > span {
+                background-color: #000
+            }
+
+        ; {
+            .gm-ui-hover-effect>span
+
+        {
+            background-color: ButtonText
+        }
+        }
+    </style>
+    <style>
+        .gm-style .gm-style-cc a, .gm-style .gm-style-cc button, .gm-style .gm-style-cc span, .gm-style .gm-style-mtc div {
+            font-size: 10px;
+            box-sizing: border-box
+        }
+
+        .gm-style .gm-style-cc a, .gm-style .gm-style-cc button, .gm-style .gm-style-cc span {
+            outline-offset: 3px
+        }
+    </style>
+    <style>
+        .dismissButton {
+            background-color: #fff;
+            border: 1px solid #dadce0;
+            color: #1a73e8;
+            border-radius: 4px;
+            font-family: Roboto,sans-serif;
+            font-size: 14px;
+            height: 36px;
+            cursor: pointer;
+            padding: 0 24px
+        }
+
+            .dismissButton:hover {
+                background-color: rgba(66,133,244,.04);
+                border: 1px solid #d2e3fc
+            }
+
+            .dismissButton:focus {
+                background-color: rgba(66,133,244,.12);
+                border: 1px solid #d2e3fc;
+                outline: 0
+            }
+
+                .dismissButton:focus:not(:focus-visible) {
+                    background-color: #fff;
+                    border: 1px solid #dadce0;
+                    outline: none
+                }
+
+            .dismissButton:focus-visible {
+                background-color: rgba(66,133,244,.12);
+                border: 1px solid #d2e3fc;
+                outline: 0
+            }
+
+            .dismissButton:hover:focus {
+                background-color: rgba(66,133,244,.16);
+                border: 1px solid #d2e2fd
+            }
+
+                .dismissButton:hover:focus:not(:focus-visible) {
+                    background-color: rgba(66,133,244,.04);
+                    border: 1px solid #d2e3fc
+                }
+
+            .dismissButton:hover:focus-visible {
+                background-color: rgba(66,133,244,.16);
+                border: 1px solid #d2e2fd
+            }
+
+            .dismissButton:active {
+                background-color: rgba(66,133,244,.16);
+                border: 1px solid #d2e2fd;
+                box-shadow: 0 1px 2px 0 rgba(60,64,67,.3),0 1px 3px 1px rgba(60,64,67,.15)
+            }
+
+            .dismissButton:disabled {
+                background-color: #fff;
+                border: 1px solid #f1f3f4;
+                color: #3c4043
+            }
+    </style>
+    <style>
+        .gm-style-moc {
+            background-color: rgba(0,0,0,.45);
+            pointer-events: none;
+            text-align: center;
+            transition: opacity ease-in-out
+        }
+
+        .gm-style-mot {
+            color: white;
+            font-family: Roboto,Arial,sans-serif;
+            font-size: 22px;
+            margin: 0;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%)
+        }
+    </style>
+    <style>
+        .gm-style img {
+            max-width: none;
+        }
+
+        .gm-style {
+            font: 400 11px Roboto, Arial, sans-serif;
+            text-decoration: none;
+        }
+    </style>
+    <title>Minishop - Free Bootstrap 4 Template by Colorlib</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+
+    <link rel="stylesheet" href="/Content/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="/Content/css/animate.css">
+
+    <link rel="stylesheet" href="/Content/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/Content/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/Content/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="/Content/css/aos.css">
+
+    <link rel="stylesheet" href="/Content/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="/Content/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="/Content/css/jquery.timepicker.css">
+
+
+    <link rel="stylesheet" href="/Content/css/flaticon.css">
+    <link rel="stylesheet" href="/Content/css/icomoon.css">
+    <link rel="stylesheet" href="/Content/css/style.css">
+    <style type="text/css">
+        .scrollax-performance, .scrollax-performance *, .scrollax-performance *:before, .scrollax-performance *:after {
+            pointer-events: none !important;
+            -webkit-animation-play-state: paused !important;
+            animation-play-state: paused !important;
+        }
+
+        ;
+    </style>
+    <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/50/12a/intl/vi_ALL/common.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/50/12a/intl/vi_ALL/util.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/50/12a/intl/vi_ALL/map.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/50/12a/intl/vi_ALL/onion.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps/api/js/ViewportInfoService.GetViewportInfo?1m6&amp;1m2&amp;1d33.341501228650905&amp;2d-82.89067666567377&amp;2m2&amp;1d47.69686981320893&amp;2d-64.83069683348786&amp;2u7&amp;4svi-VN&amp;5e0&amp;6sm%40626000000&amp;7b0&amp;8e0&amp;12e1&amp;13sfile%3A%2F%2F%2FC%3A%2FUsers%2FPC%2FDownloads%2Fminishop-master%2Fminishop-master%2Fcontact.html&amp;14b1&amp;callback=_xdc_._yhp3a7&amp;key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&amp;token=46926"></script>
+    <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps/api/js/AuthenticationService.Authenticate?1sfile%3A%2F%2F%2FC%3A%2FUsers%2FPC%2FDownloads%2Fminishop-master%2Fminishop-master%2Fcontact.html&amp;4sAIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&amp;7m1&amp;1e69&amp;8b0&amp;callback=_xdc_._44i00n&amp;key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&amp;token=48038"></script>
+    <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps/vt?pb=!1m4!1m3!1i7!2i36!3i47!1m4!1m3!1i7!2i37!3i47!1m4!1m3!1i7!2i38!3i47!1m4!1m3!1i7!2i36!3i48!1m4!1m3!1i7!2i36!3i49!1m4!1m3!1i7!2i37!3i48!1m4!1m3!1i7!2i37!3i49!1m4!1m3!1i7!2i38!3i48!1m4!1m3!1i7!2i38!3i49!2m3!1e0!2sm!3i626359246!3m17!2svi-VN!3sUS!5e18!12m4!1e68!2m2!1sset!2sRoadmap!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy50OjE3fHMuZTpnfHAudjpzaW1wbGlmaWVkfHAuaDojZmYwMDAw!4e3!12m1!5b1!23i1379903&amp;callback=_xdc_._r3mqrb&amp;key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&amp;token=46157"></script>
+    <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps/api/js/QuotaService.RecordEvent?1sfile%3A%2F%2F%2FC%3A%2FUsers%2FPC%2FDownloads%2Fminishop-master%2Fminishop-master%2Fcontact.html&amp;3sAIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&amp;7sflcd02&amp;10e1&amp;11b0&amp;callback=_xdc_._rb0s2i&amp;key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&amp;token=70246"></script>
+    <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/50/12a/intl/vi_ALL/controls.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps/vt?pb=!1m4!1m3!1i7!2i36!3i47!1m4!1m3!1i7!2i37!3i47!1m4!1m3!1i7!2i38!3i47!1m4!1m3!1i7!2i36!3i48!1m4!1m3!1i7!2i36!3i49!1m4!1m3!1i7!2i37!3i48!1m4!1m3!1i7!2i37!3i49!1m4!1m3!1i7!2i38!3i48!1m4!1m3!1i7!2i38!3i49!2m3!1e0!2sm!3i626359246!3m17!2svi-VN!3sUS!5e18!12m4!1e68!2m2!1sset!2sRoadmap!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcC5zOi02MHxwLmw6LTYw!4e3!12m1!5b1!23i1379903&amp;callback=_xdc_._10fmjj&amp;key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&amp;token=53366"></script>
+</head>
+<body class="goto-here" data-aos-easing="slide" data-aos-duration="800" data-aos-delay="0">
+    <div class="py-1 bg-black">
+        <div class="container">
+            <div class="row no-gutters d-flex align-items-start align-items-center px-md-0">
+                <div class="col-lg-12 d-block">
+                    <div class="row d-flex">
+                        <div class="col-md pr-4 d-flex topper align-items-center">
+                            <div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-phone2"></span></div>
+                            <span class="text">+ 1235 2355 98</span>
+                        </div>
+                        <div class="col-md pr-4 d-flex topper align-items-center">
+                            <div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-paper-plane"></span></div>
+                            <span class="text">youremail@email.com</span>
+                        </div>
+                        <div class="col-md-5 pr-4 d-flex topper align-items-center text-lg-right">
+                            <span class="text">3-5 Business days delivery &amp; Free Returns</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @Html.Partial("~/Views/Home/MenuPartial.cshtml")
+
+    <!-- END nav -->
+
+    <div class="hero-wrap hero-bread" style="background-image: url('/Content/images/bg/bg_6.jpg'); ">
+        <div class="container">
+            <div class="row no-gutters slider-text align-items-center justify-content-center">
+                <div class="col-md-9 ftco-animate text-center fadeInUp ftco-animated">
+                    <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Contact</span></p>
+                    <h1 class="mb-0 bread">Contact Us</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @RenderBody()
+    @Html.Partial("~/Views/Home/FooterPartial.cshtml")
+
+
+
+
+    <!-- loader -->
+    <div id="ftco-loader" class="fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"></circle><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"></circle></svg></div>
+
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/jquery.animateNumber.min.js"></script>
+    <script src="js/bootstrap-datepicker.js"></script>
+    <script src="js/scrollax.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&amp;sensor=false"></script>
+    <script src="js/google-map.js"></script>
+    <script src="js/main.js"></script>
+
+
+</body>
+</html>

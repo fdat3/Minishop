@@ -21,6 +21,8 @@ namespace E_Commerce.Controllers
             return View(lsSPM);
         }
 
+
+
         [HttpGet]
         public ActionResult DangKy()
         {

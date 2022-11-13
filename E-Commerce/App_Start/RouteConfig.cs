@@ -18,6 +18,31 @@ namespace E_Commerce
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+
+            routes.MapRoute(
+                name: "Blog",
+                url: "blog",
+                defaults: new { controller = "Blog", action = "Index", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "Contact",
+                url: "contact",
+                defaults: new { controller = "Contact", action = "Index", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "Shop",
+                url: "shop",
+                defaults: new { controller = "SanPham", action = "Shop", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "XemChiTiet",
+                url: "{tensp}-{id}",
+                defaults: new { controller = "SanPham", action = "XemChiTiet", id = UrlParameter.Optional }
+            );
         }
     }
 }

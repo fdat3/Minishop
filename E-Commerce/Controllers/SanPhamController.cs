@@ -28,7 +28,7 @@ namespace E_Commerce.Controllers
             return PartialView();
         }
         //Trang xem san pham chi tiet
-        public ActionResult XemChiTiet(int? id)
+        public ActionResult XemChiTiet(int? id, string tensp)
         {
             if(id == null) {
                 return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);

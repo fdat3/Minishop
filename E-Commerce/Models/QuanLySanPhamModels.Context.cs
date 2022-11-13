@@ -15,6 +15,8 @@ namespace E_Commerce.Models
     
     public partial class QuanLySanPhamEntities : DbContext
     {
+        internal object QuanTriViens;
+
         public QuanLySanPhamEntities()
             : base("name=QuanLySanPhamEntities")
         {
