@@ -23,17 +23,14 @@
                 <a href="#"><span class="ion-ios-star-outline"></span></a>
             </p>
             <p class="text-left mr-4">
-                <a href="#" class="mr-2" style="color: #000;">@Model.LuotBinhChon <span style="color: #bbb;">Lượt bình chọn</span></a>
+                <a href="#" class="mr-2" style="color: #000;">@Model.NhaSanXuat.TenNSX <span style="color: #bbb;"></span></a>
             </p>
             <p class="text-left">
                 <a href="#" class="mr-2" style="color: #000;"> @Model.SoLanMua <span style="color: #bbb;">Sản phẩm đã bán ra</span></a>
             </p>
         </div>
         <p class="price"><span>@Model.DonGia.Value.ToString("#,##") VND</span></p>
-        <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-        <p>
-            On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.
-        </p>
+        <p>@Model.ThongTin</p>
         <div class="row mt-4">
             <div class="col-md-6">
                 <div class="form-group d-flex">
@@ -55,7 +52,7 @@
                         <i class="ion-ios-remove"></i>
                     </button>
                 </span>
-                <input type="text" id="quantity" name="quantity" class="quantity form-control input-number" value="@Model.SoLuongTonKho" min="1" max="100">
+                <input type="text" id="quantity" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">
                 <span class="input-group-btn ml-2">
                     <button type="button" class="quantity-right-plus btn" data-type="plus" data-field="">
                         <i class="ion-ios-add"></i>
@@ -76,11 +73,11 @@
     <div class="row mt-5">
         <div class="col-md-12 nav-link-wrap">
             <div class="nav nav-pills d-flex text-center" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                <a class="nav-link ftco-animate active mr-lg-1" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1" role="tab" aria-controls="v-pills-1" aria-selected="true">Description</a>
+                <a class="nav-link ftco-animate active mr-lg-1" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1" role="tab" aria-controls="v-pills-1" aria-selected="true">Mô tả sản phẩm</a>
 
-                <a class="nav-link ftco-animate mr-lg-1" id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2" role="tab" aria-controls="v-pills-2" aria-selected="false">Manufacturer</a>
+                <a class="nav-link ftco-animate mr-lg-1" id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2" role="tab" aria-controls="v-pills-2" aria-selected="false">Thông tin nhà sản xuất</a>
 
-                <a class="nav-link ftco-animate" id="v-pills-3-tab" data-toggle="pill" href="#v-pills-3" role="tab" aria-controls="v-pills-3" aria-selected="false">Reviews</a>
+                <a class="nav-link ftco-animate" id="v-pills-3-tab" data-toggle="pill" href="#v-pills-3" role="tab" aria-controls="v-pills-3" aria-selected="false">Đánh giá</a>
 
             </div>
         </div>
@@ -90,15 +87,13 @@
 
                 <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel" aria-labelledby="day-1-tab">
                     <div class="p-4">
-                        <h3 class="mb-4">Nike Free RN 2019 iD</h3>
-                        <p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.</p>
+                        <p>@Model.MoTa</p>
                     </div>
                 </div>
 
                 <div class="tab-pane fade" id="v-pills-2" role="tabpanel" aria-labelledby="v-pills-day-2-tab">
                     <div class="p-4">
-                        <h3 class="mb-4">Manufactured By Nike</h3>
-                        <p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.</p>
+                        <p>@Model.NhaSanXuat.ThongTin</p>
                     </div>
                 </div>
                 <div class="tab-pane fade" id="v-pills-3" role="tabpanel" aria-labelledby="v-pills-day-3-tab">

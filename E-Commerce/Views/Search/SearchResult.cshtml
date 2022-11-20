@@ -1,6 +1,5 @@
 ﻿@using E_Commerce.Models
-@using PagedList.Mvc
-@model  PagedList.IPagedList<SanPham>
+@model  IEnumerable<SanPham>
 @{
     ViewBag.keyword = "keyword";
     ViewBag.Title = "SearchResult";
@@ -10,7 +9,8 @@
 
 <div class="container">
     <div id="view" class="row">
-        <div class="col-md-8 col-lg-10 order-md-last">
+        @*<h1>Kết quả tìm kiếm cho: @ViewBag.keyword</h1>*@
+        <div class="col-md-12 col-lg-12 order-md-last">
             <div id="search-result" class="row">
                 @foreach (var item in Model)
                 {
@@ -50,7 +50,7 @@
             </div>
         </div>
 
-        <div class="col-md-4 col-lg-2">
+        <div class="col-md-12 col-lg-12">
             <div class="sidebar">
                 <div class="sidebar-box-2">
                     @using (Ajax.BeginForm("SearchResult", "Search", null, new AjaxOptions { UpdateTargetId = "search-result", InsertionMode = InsertionMode.Replace }, new { @class = "search-form" }))
@@ -62,42 +62,28 @@
                     }
                 </div>
 
-                <div class="sidebar-box-2">
-                    <h2 class="heading">Categories</h2>
-                    <div class="fancy-collapse-panel">
-                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                            @foreach (var lsSP in Model.GroupBy(n => n.LoaiSanPham))
-                            {
-                                if (lsSP.Key != null)
+                @*<div class="sidebar-box-2">
+                        <h2 class="heading">Categories</h2>
+                        <div class="fancy-collapse-panel">
+                            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                @foreach (var lsSP in Model.GroupBy(n => n.LoaiSanPham))
                                 {
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading" role="tab" id="headingOne">
-                                            <h4 class="panel-title">
-                                                <a href="@Url.Action("MiniSearch", "Search", new { @MaLoaiSP = lsSP.Key.MaLoaiSP})">
-                                                    @lsSP.Key.TenLoaiSP
-                                                </a>
-                                            </h4>
+                                    if (lsSP.Key != null)
+                                    {
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" role="tab" id="headingOne">
+                                                <h4 class="panel-title">
+                                                    <a href="@Url.Action("MiniSearch", "Search", new { @MaLoaiSP = lsSP.Key.MaLoaiSP})">
+                                                        @lsSP.Key.TenLoaiSP
+                                                    </a>
+                                                </h4>
+                                            </div>
                                         </div>
-                                    </div>
+                                    }
                                 }
-                            }
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-
-
-    <div class="row mt-5">
-        <div class="col text-center">
-            <div class="block-27">
-                <ul>
-                    <li>@Html.PagedListPager(Model, page => Url.Action("Shop", new { page = page, @lsSP = ViewBag.lsSP }))</li>
-                </ul>
+                    </div>*@
             </div>
         </div>
     </div>

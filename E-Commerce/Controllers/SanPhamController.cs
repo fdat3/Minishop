@@ -54,8 +54,9 @@ namespace E_Commerce.Controllers
 
         public ActionResult Shop(int? page)
         {
-            var lsSP = db.SanPhams;
-            ViewBag.lsSP = lsSP;
+             var lsSP = db.SanPhams;
+            //ViewBag.lsSP = lsSP;
+            //List<SanPham> lsp = Product.getProduct();
             //Number of item in 1 page
             int PageSize = 9;
             int PageNumber = (page ?? 1);

@@ -50,6 +50,7 @@ namespace E_Commerce.Controllers
         [HttpPost]
         public ActionResult DangNhap(FormCollection f)
         {
+            // Khởi tạo và kiểm tra thông tin tài khoản mật khẩu
             string sTaiKhoan = f["TaiKhoan"].ToString();
             string sMatKhau = f["MatKhau"].ToString();
 
@@ -65,6 +66,7 @@ namespace E_Commerce.Controllers
 
         public ActionResult DangXuat()
         {
+
             Session["TaiKhoan"] = null;
             return RedirectToAction("Index");
         }

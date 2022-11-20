@@ -1,6 +1,6 @@
 ﻿@using E_Commerce.Models
 @using PagedList.Mvc
-@model  PagedList.IPagedList<SanPham>
+@model  IEnumerable<SanPham>
 @{
     ViewBag.keyword = "keyword";
     ViewBag.Title = "MiniSearch";
@@ -9,7 +9,7 @@
 <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
 <div class="container">
     <div id="view" class="row">
-        <div class="col-md-8 col-lg-10 order-md-last">
+        <div class="col-md-10 col-lg-12 order-md-last">
             <div id="search-result" class="row">
                 @foreach (var item in Model)
                 {
@@ -49,17 +49,3 @@
             </div>
         </div>
     </div>
-
-    <div class="row mt-5">
-        <div class="col text-center">
-            <div class="block-27">
-                <ul>
-                    <li>@Html.PagedListPager(Model, page => Url.Action("Shop", new { page = page, @lsSP = ViewBag.lsSP }))</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-
-
-

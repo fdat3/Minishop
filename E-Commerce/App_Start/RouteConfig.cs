@@ -33,15 +33,15 @@ namespace E_Commerce
             );
 
             routes.MapRoute(
-                name: "Shop",
-                url: "shop",
-                defaults: new { controller = "SanPham", action = "Shop", id = UrlParameter.Optional }
-            );
-
-            routes.MapRoute(
                 name: "XemChiTiet",
                 url: "{tensp}-{id}",
                 defaults: new { controller = "SanPham", action = "XemChiTiet", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "Login",
+                url: "login",
+                defaults: new { controller = "Home", action = "DangNhap", id = UrlParameter.Optional }
             );
         }
     }

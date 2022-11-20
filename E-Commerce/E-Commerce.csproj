@@ -200,6 +200,7 @@
     <Compile Include="Models\PhieuNhap.cs">
       <DependentUpon>QuanLySanPhamModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Product.cs" />
     <Compile Include="Models\QuanLySanPhamModels.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -381,6 +382,16 @@
     <Content Include="Content\images\SanPham\product-6.png" />
     <Content Include="Content\images\SanPham\product-7.png" />
     <Content Include="Content\images\SanPham\product-8.png" />
+    <Content Include="Content\images\SanPham\va-36-green.png" />
+    <Content Include="Content\images\SanPham\va-36.png" />
+    <Content Include="Content\images\SanPham\va-checkboard.png" />
+    <Content Include="Content\images\SanPham\va-pro.jpg" />
+    <Content Include="Content\images\SanPham\va-skate.png" />
+    <Content Include="Content\images\SanPham\va-slip.png" />
+    <Content Include="Content\images\SanPham\va-ua.png" />
+    <Content Include="Content\images\SanPham\va44-factory.png" />
+    <Content Include="Content\images\SanPham\vaheim-blue.png" />
+    <Content Include="Content\images\SanPham\VN0A5KRD705_4-650x650.jpg" />
     <Content Include="Content\js\aos.js" />
     <Content Include="Content\js\bootstrap-datepicker.js" />
     <Content Include="Content\js\bootstrap.min.js" />

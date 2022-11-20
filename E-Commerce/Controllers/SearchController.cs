@@ -12,32 +12,17 @@ namespace E_Commerce.Controllers
     {
         QuanLySanPhamEntities db = new QuanLySanPhamEntities();
         // GET: Search
-        public ActionResult SearchResult(string keyword, int? page)
+        public ActionResult SearchResult(string keyword)
         {
-            if(Request.HttpMethod != "GET")
-            {
-                page = 1;
-            }
-
-            int pageSize = 10;
-            int pageNumber = page ?? 1;
             var lsSP = db.SanPhams.Where(n => n.TenSP.Contains(keyword));
             ViewBag.keyword = keyword;
-            return View(lsSP.OrderBy(n => n.TenSP).ToPagedList(pageNumber,pageSize));
+            return View(lsSP);
         }
 
-        public ActionResult MiniSearch(int? MaLoaiSP, int? page)
+        public ActionResult MiniSearch(int? MaLoaiSP)
         {
-            if (Request.HttpMethod != "GET")
-            {
-                page = 1;
-            }
-            int pageSize = 10;
-            int pageNumber = page ?? 1;
-
-
-            var lstSP = db.SanPhams.Where(n => n.MaLoaiSP == MaLoaiSP).ToList();
-            return View(lstSP.ToPagedList(pageNumber, pageSize));
+            List<SanPham> lstSP = Product.getProductByType(MaLoaiSP);
+            return View(lstSP);
         }
 
         [HttpPost]
