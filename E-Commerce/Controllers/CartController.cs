@@ -11,6 +11,15 @@ namespace E_Commerce.Controllers
     public class CartController : Controller
     {
         QuanLySanPhamEntities db = new QuanLySanPhamEntities();
+
+        /*public ActionResult addCart(int maSP)
+        {
+            CartItem cart = Session["CartItem"] as CartItem;
+            cart.addItem(maSP);
+            Session["CartItem"] = cart;
+            return PartialView("CartPartial");
+        }*/
+
         // GET: Cart
         public ActionResult CartView()
         {
@@ -21,9 +30,9 @@ namespace E_Commerce.Controllers
 
         // Phuong thay lay gio hang
         public List<CartItem> GetCart()
-        { 
+        {
             List<CartItem> lstCart = Session["CartItem"] as List<CartItem>;
-            if(lstCart == null)
+            if (lstCart == null)
             {
                 // Khoi tao gio hang neu gio hang chua ton tai
                 lstCart = new List<CartItem>();
@@ -46,12 +55,12 @@ namespace E_Commerce.Controllers
             List<CartItem> lstCart = GetCart();
             // Truong hop 1: San pham da co trong gio hang
             CartItem CheckItem = lstCart.SingleOrDefault(n => n.MaSP == MaSP);
-            if(CheckItem != null)
+            if (CheckItem != null)
             {
-                if(sp.SoLuongTonKho < CheckItem.SoLuong) // Truong hop het han
+                if (sp.SoLuongTonKho < CheckItem.SoLuong) // Truong hop het han
                 {
                     return null; // Update sau
-                } 
+                }
                 CheckItem.SoLuong++;
                 CheckItem.TongTien = CheckItem.SoLuong * CheckItem.DonGia;
                 ViewBag.TotalItem = TotalItem();
@@ -67,7 +76,7 @@ namespace E_Commerce.Controllers
 
         public ActionResult RemoveCart(int MaSP)
         {
-             if (Session["CartItem"] == null)
+            if (Session["CartItem"] == null)
             {
                 return RedirectToAction("Index", "Home");
             }
@@ -79,16 +88,16 @@ namespace E_Commerce.Controllers
             }
             List<CartItem> lstCart = GetCart();
             CartItem CheckItem = lstCart.SingleOrDefault(n => n.MaSP == MaSP);
-            
+
             lstCart.Remove(CheckItem);
-            return PartialView("CartPartial");
+            return View("CartView");
         }
 
         // Phuong thuc tong so tien phai thanh toan
         public decimal TotalBill()
         {
             List<CartItem> lstItem = Session["CartItem"] as List<CartItem>;
-            if(lstItem == null)
+            if (lstItem == null)
             {
                 return 0;
             }
@@ -101,7 +110,7 @@ namespace E_Commerce.Controllers
         {
             // Lay gio hang 
             List<CartItem> lstItem = Session["CartItem"] as List<CartItem>;
-            if(lstItem == null)
+            if (lstItem == null)
             {
                 return 0;
             }
@@ -110,7 +119,7 @@ namespace E_Commerce.Controllers
         }
         public ActionResult CartPartial()
         {
-            if(TotalItem() == 0)
+            if (TotalItem() == 0)
             {
                 ViewBag.TotalItem = 0;
                 ViewBag.TotalBill = 0;
@@ -120,6 +129,7 @@ namespace E_Commerce.Controllers
             ViewBag.TotalBill = TotalBill();
             return PartialView();
         }
+        [HttpGet]
         public ActionResult EditCart(int MaSP)
         {
             if (Session["CartItem"] == null)
@@ -138,31 +148,66 @@ namespace E_Commerce.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
+            ViewBag.CartItem = lstCart;
             return View(CheckItem);
         }
 
-        public ActionResult Order()
+        [HttpPost]
+        public ActionResult UpdateCart(CartItem cIT)
+        {
+            //Kiem tra so luong hang ton kho
+            SanPham checkItem = db.SanPhams.Single(n => n.MaSP == cIT.MaSP);
+            if(checkItem.SoLuongTonKho < cIT.SoLuong)
+            {
+                return View("CartView");
+            }
+            //Update lai so luong san pham sau khi chinh sua
+            //Step1: Lay tu Session["CartItem"]
+            List<CartItem> lstCart = GetCart();
+            //Step2: Lay san pham duoc cap nhat tu trong danh sach
+            CartItem itemCartUpdate = lstCart.Find(n => n.MaSP == cIT.MaSP);
+            //Step3: Update lai cac danh muc
+            itemCartUpdate.SoLuong = cIT.SoLuong;
+            
+            itemCartUpdate.TongTien = itemCartUpdate.SoLuong * itemCartUpdate.DonGia;
+            return RedirectToAction("CartView");
+        }
+
+        public ActionResult Order(KhachHang khH)
         {
             // Check cart
+
+            //Khoi tao bien KhachHang de ghi vao csdl
+            KhachHang kh = new KhachHang();
+
+
             if (Session["CartItem"] == null)
             {
                 return RedirectToAction("Index", "Home");
             }
-            if (Session["TaiKhoan"] == null)
-            {
-                return RedirectToAction("DangNhap", "Home");
-            } else
-            {
-            return RedirectToAction("CartView");
 
+            // ghi vao db voi khach hang co tai khoan
+            if (Session["TaiKhoan"] != null)
+            {
+                ThanhVien tv = Session["TaiKhoan"] as ThanhVien;
+                kh.TenKhachHang = tv.HoTen;
+                kh.DiaChi = tv.DiaChi;
+                kh.SoDienThoai = tv.SoDienThoai;
+                kh.Email = tv.Email;
+                kh.MaTV = tv.MaLTV;
+                // ghi vao db
+                db.KhachHangs.Add(kh);
+                db.SaveChanges();
             }
+
             // Call Database
             DonDatHang ddh = new DonDatHang();
+            ddh.MaKhachHang = kh.MaKhachHang;
             ddh.NgayDatHang = DateTime.Now;
             ddh.TinhTrangDH = false;
             ddh.DaThanhToan = false;
+            ddh.MaKhachHang = ddh.MaKhachHang;
             ddh.UuDai = 0;
-            
             // Add to Database
             db.DonDatHangs.Add(ddh);
             //Sync
@@ -170,7 +215,7 @@ namespace E_Commerce.Controllers
 
             //Call GetCart Method
             List<CartItem> lstCart = GetCart();
-            foreach(var item in lstCart)
+            foreach (var item in lstCart)
             {
                 ChiTietDonDatHang ctd = new ChiTietDonDatHang();
                 ctd.MaDDH = ddh.MaDDH;

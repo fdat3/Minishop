@@ -15,8 +15,6 @@ namespace E_Commerce.Models
     
     public partial class QuanLySanPhamEntities : DbContext
     {
-        internal object QuanTriViens;
-
         public QuanLySanPhamEntities()
             : base("name=QuanLySanPhamEntities")
         {
@@ -39,5 +37,7 @@ namespace E_Commerce.Models
         public virtual DbSet<PhieuNhap> PhieuNhaps { get; set; }
         public virtual DbSet<SanPham> SanPhams { get; set; }
         public virtual DbSet<ThanhVien> ThanhViens { get; set; }
+        public virtual DbSet<BaiViet> BaiViets { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }

@@ -1,0 +1,36 @@
+﻿<link rel="stylesheet" href="~/Content/css/jquery-ui.css">
+<script src="~/Content/js/jquery-3.6.0.js"></script>
+<script src="~/Content/js/jquery-ui.js"></script>
+
+
+<div class="sidebar-box-2">
+    @using (Html.BeginForm("SearchResult", "Search",
+                    null,
+                    FormMethod.Post, new { @class = "search-form" }))
+    {
+        <div class="form-group">
+            <span class="icon ion-ios-search"></span>
+            <input type="text" id="searchInput" name="search" class="form-control" placeholder="Type a keyword and hit enter">
+        </div>
+    }
+</div>
+
+<script>
+    $("#searchInput").autocomplete({
+        source: function (request, response) {
+            $.ajax({
+                url: '@Url.Action("GetSearchValue", "Search")',
+                dataType: "json",
+                data: { search: $("#searchInput").val() },
+                success: function (data) {
+                    response($.map(data, function (item) {
+                        return { label: item.TenSP, value: item.TenSP };
+                    }));
+                },
+                error: function (xhr, status, error) {
+                    alert("Error");
+                }
+            });
+        }
+    });
+</script>

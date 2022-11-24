@@ -53,7 +53,7 @@
         <div class="col-md-12 col-lg-12">
             <div class="sidebar">
                 <div class="sidebar-box-2">
-                    @using (Ajax.BeginForm("SearchResult", "Search", null, new AjaxOptions { UpdateTargetId = "search-result", InsertionMode = InsertionMode.Replace }, new { @class = "search-form" }))
+                    @using (Ajax.BeginForm("TakeKeyword", "Search", null, new AjaxOptions { UpdateTargetId = "search-result", InsertionMode = InsertionMode.Replace }, new { @class = "search-form" }))
                     {
                         <div class="form-group">
                             <span class="icon ion-ios-search"></span>

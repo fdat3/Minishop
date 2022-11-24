@@ -12,10 +12,10 @@ namespace E_Commerce.Controllers
     {
         QuanLySanPhamEntities db = new QuanLySanPhamEntities();
         // GET: Search
-        public ActionResult SearchResult(string keyword)
+        public ActionResult SearchResult(string search)
         {
-            var lsSP = db.SanPhams.Where(n => n.TenSP.Contains(keyword));
-            ViewBag.keyword = keyword;
+            var lsSP = db.SanPhams.Where(n => n.TenSP.Contains(search));
+            ViewBag.keyword = search;
             return View(lsSP);
         }
 
@@ -25,11 +25,37 @@ namespace E_Commerce.Controllers
             return View(lstSP);
         }
 
-        [HttpPost]
-        public ActionResult TakeKeyword(string keyword)
+        //AutoComplete
+
+        public JsonResult GetSearchValue(string search)
         {
-            ViewBag.keyword = keyword;
-            return RedirectToAction("SearchResult", new { @keyword = keyword });
+            QuanLySanPhamEntities db = new QuanLySanPhamEntities();
+            List<Product> allsearch = db.SanPhams.Where(n => n.TenSP.Contains(search)).Select(n => new Product
+            {
+                MaSP = n.MaSP,
+                TenSP = n.TenSP
+            }).ToList();
+            return new JsonResult { Data = allsearch, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+        }
+
+
+        /*public JsonResult GetValueSearch(string search)
+        {
+            QuanLySanPhamEntities db = new QuanLySanPhamEntities();
+            List<Product> allItem = db.SanPhams.Where(n => n.TenSP.Contains(search))
+            .Select(n => new Product
+            {
+                MaSP = n.MaSP,
+                TenSP = n.TenSP
+            }).ToList();
+            return new JsonResult { Data = allItem, JsonRequestBehavior = JsonRequestBehavior.AllowGet }; 
+        }*/
+
+        [HttpPost]
+        public ActionResult TakeKeyword(string search)
+        {
+            ViewBag.keyword = search;
+            return RedirectToAction("SearchResult", new { @keyword = search });
         }
     }
 }

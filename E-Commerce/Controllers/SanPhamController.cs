@@ -16,7 +16,7 @@ namespace E_Commerce.Controllers
         // Tao Partial View San Pham
         [ChildActionOnly]
         // GET: SanPham
-        public ActionResult SanPhamParticial ()
+        public ActionResult SanPhamParticial()
         {
             return PartialView();
         }
@@ -30,31 +30,23 @@ namespace E_Commerce.Controllers
         //Trang xem san pham chi tiet
         public ActionResult XemChiTiet(int? id, string tensp)
         {
-            if(id == null) {
+            if (id == null)
+            {
                 return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
             }
             SanPham sp = db.SanPhams.SingleOrDefault(n => n.MaSP == id);
-            if(sp == null)
+            if (sp == null)
             {
                 return HttpNotFound();
             }
 
             return View(sp);
         }
-        
-        public JsonResult ListName(string value)
-        {
-            var data = new SanPham().ListName(value);
-            return Json(new
-            {
-                data = data,
-                status = true
-            },JsonRequestBehavior.AllowGet);
-        }
+
 
         public ActionResult Shop(int? page)
         {
-             var lsSP = db.SanPhams;
+            var lsSP = db.SanPhams;
             //ViewBag.lsSP = lsSP;
             //List<SanPham> lsp = Product.getProduct();
             //Number of item in 1 page

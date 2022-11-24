@@ -30,15 +30,21 @@ namespace E_Commerce.Controllers
         }
 
         [HttpPost]
-        public ActionResult DangKy(ThanhVien tv, FormCollection f)
+        public ActionResult DangKy(ThanhVien tv)
         {
-                if(ModelState.IsValid)
+            //Nếu khách hàng điền đầy đủ thông tin
+            if (ModelState.IsValid)
             {
-                ViewBag.ThongBao = "Đăng ký thành công !";
+                //Tiến hành mã hóa
+                tv.MatKhau = Hash.hashPassword(tv.MatKhau);
+                //Thêm tài khoản vào DB ThanhVien
                 db.ThanhViens.Add(tv);
+                // Lưu các thay đổi
                 db.SaveChanges();
+                //Thông báo và đưa người dùng về trang chủ
+                ViewBag.ThongBao = "Đăng ký thành công !";
             }
-                return View();
+            return View();
         }
 
         [HttpGet]
@@ -48,20 +54,21 @@ namespace E_Commerce.Controllers
         }
 
         [HttpPost]
-        public ActionResult DangNhap(FormCollection f)
+        public ActionResult DangNhap(ThanhVien tv)
         {
             // Khởi tạo và kiểm tra thông tin tài khoản mật khẩu
-            string sTaiKhoan = f["TaiKhoan"].ToString();
-            string sMatKhau = f["MatKhau"].ToString();
+            var currentAccount = db.ThanhViens.SingleOrDefault(n => n.TaiKhoan.Equals(tv.TaiKhoan));
 
-            ThanhVien tv = db.ThanhViens.SingleOrDefault(n => n.TaiKhoan == sTaiKhoan && n.MatKhau == sMatKhau);
-            if (tv == null)
+            if (currentAccount != null)
             {
-                ViewBag.ErrorMessage = "Sai ten dang nhap hoac mat khau !";
-                return RedirectToAction("DangNhap");
+                if (Hash.validatePassword(tv.MatKhau, currentAccount.MatKhau))
+                {
+                    Session.Add("TaiKhoan", tv.HoTen);
+                    Session["TaiKhoan"] = tv;
+                    return RedirectToAction("Index");
+                }
             }
-            Session["TaiKhoan"] = tv;
-            return RedirectToAction("Index");
+            return RedirectToAction("DangNhap");
         }
 
         public ActionResult DangXuat()

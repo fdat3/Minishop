@@ -7,7 +7,7 @@
 <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
 
 
-@if(Model.Count == 0)
+@if (Model.Count == 0)
 {
     <section class="ftco-section ftco-cart">
         <div class="container">
@@ -42,7 +42,7 @@ else
                                 <tbody id="CartItem">
                                     <tr class="text-center">
                                         <td class="product-remove">
-                                            @Ajax.ActionLink("x","RemoveCart", "Cart", new { @MaSP = item.MaSP }, new AjaxOptions {UpdateTargetId = "CartItem", InsertionMode = InsertionMode.Replace })
+                                            @Html.ActionLink("Sửa giỏ hàng", "EditCart", new { @MaSP = item.MaSP })
                                         </td>
 
                                         <td class="image-prod"><div class="img" style="background-image:url(/Content/images/SanPham/@item.HinhAnh)"></div></td>
@@ -61,17 +61,15 @@ else
                                                 @Html.TextBox("SoLuong", item.SoLuong, new { @class = "quantity form-control input-number" })
                                             </div>
                                         </td>
-
-
                                         <td class="total">@item.TongTien.ToString("#,##")</td>
                                     </tr><!-- END TR-->
-
                                 </tbody>
                             }
                         </table>
                     </div>
                 </div>
             </div>
+
             <div class="row justify-content-start">
                 <div class="col col-lg-5 col-md-6 mt-5 cart-wrap ftco-animate fadeInUp ftco-animated">
                     <div class="cart-total mb-3">
@@ -94,8 +92,8 @@ else
                             <span>@ViewBag.TotalBill</span>
                         </p>
                     </div>
-                    @Html.ActionLink("Proceed to Checkout", "Order",null, new { @class = "btn btn-primary py-3 px-4" }) 
-                   
+                    @Html.ActionLink("Proceed to Checkout", "Order", null, new { @class = "btn btn-primary py-3 px-4" })
+
                 </div>
             </div>
         </div>

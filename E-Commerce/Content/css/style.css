@@ -9279,9 +9279,6 @@ div#Cart {
       -moz-appearance: none;
       appearance: none; }
 
-.cart-list {
-  overflow-x: scroll; }
-
 .table {
   min-width: 1000px !important;
   width: 100%;
@@ -10681,4 +10678,10 @@ textarea.form-control {
 
 a.nav-link {
     padding: 23px;
+}
+
+a.edit-cart {
+    padding: 10px;
+    background-color: black;
+    color: white;
 }

@@ -7,6 +7,9 @@ namespace E_Commerce.Models
 {
     public class Product
     {
+        public int MaSP { get; set; }
+        public string TenSP { get; set; }
+
         public static List<SanPham>  getProduct()
         {
             //Declare
@@ -34,7 +37,10 @@ namespace E_Commerce.Models
             return lSP;
         }
 
-
-        
+        public static SanPham getProductByID(int maSP)
+        {
+            QuanLySanPhamEntities db = new QuanLySanPhamEntities();
+            return db.Set<SanPham>().Find(maSP);
+        }
     }
 }

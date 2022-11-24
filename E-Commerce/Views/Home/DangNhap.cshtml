@@ -7,14 +7,13 @@
 @model ThanhVien
 
 
-@ViewBag.ErrorMessage
 <div class="row align-content-center">
     @using (Html.BeginForm("DangNhap", "Home"))
     {
         @Html.AntiForgeryToken()
 
         @Html.ValidationSummary(true)
-
+        @ViewBag.Error
         <div class="col-xl-10 ftco-animate fadeInUp ftco-animated">
             <form action="#" class="billing-form">
                 <h3 class="mb-4 billing-heading">ĐĂNG NHẬP</h3>
