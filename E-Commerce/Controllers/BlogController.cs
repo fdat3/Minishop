@@ -14,7 +14,6 @@ namespace E_Commerce.Controllers
         {
             QuanLySanPhamEntities db = new QuanLySanPhamEntities();
 
-
             return View();
         }
     }

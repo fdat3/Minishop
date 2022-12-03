@@ -23,6 +23,7 @@
           <Property Name="NoiDung" Type="nvarchar(max)" />
           <Property Name="MaTV" Type="int" />
           <Property Name="MaSP" Type="int" />
+          <Property Name="ThoiGian" Type="datetime" />
         </EntityType>
         <EntityType Name="ChiTietDonDatHang">
           <Key>
@@ -159,7 +160,7 @@
           <Property Name="HoTen" Type="nvarchar" MaxLength="100" />
           <Property Name="DiaChi" Type="nvarchar" MaxLength="255" />
           <Property Name="SoDienThoai" Type="varchar" MaxLength="10" />
-          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar(max)" />
           <Property Name="MaLTV" Type="int" />
         </EntityType>
         <Association Name="FK_BinhLuan_SanPham">
@@ -406,6 +407,7 @@
           <Property Name="MaSP" Type="Int32" />
           <NavigationProperty Name="SanPham" Relationship="Self.FK_BinhLuan_SanPham" FromRole="BinhLuan" ToRole="SanPham" />
           <NavigationProperty Name="ThanhVien" Relationship="Self.FK_BinhLuan_ThanhVien" FromRole="BinhLuan" ToRole="ThanhVien" />
+          <Property Name="ThoiGian" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="ChiTietDonDatHang">
           <Key>
@@ -557,7 +559,7 @@
           <NavigationProperty Name="BinhLuans" Relationship="Self.FK_BinhLuan_ThanhVien" FromRole="ThanhVien" ToRole="BinhLuan" />
           <NavigationProperty Name="KhachHangs" Relationship="Self.FK_KhachHang_ThanhVien" FromRole="ThanhVien" ToRole="KhachHang" />
           <NavigationProperty Name="LoaiThanhVien" Relationship="Self.FK_ThanhVien_LoaiThanhVien" FromRole="ThanhVien" ToRole="LoaiThanhVien" />
-          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_BinhLuan_SanPham">
           <End Role="SanPham" Type="Self.SanPham" Multiplicity="0..1" />
@@ -818,6 +820,7 @@
           <EntitySetMapping Name="BinhLuans">
             <EntityTypeMapping TypeName="QuanLySanPhamModel.BinhLuan">
               <MappingFragment StoreEntitySet="BinhLuan">
+                <ScalarProperty Name="ThoiGian" ColumnName="ThoiGian" />
                 <ScalarProperty Name="MaBL" ColumnName="MaBL" />
                 <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
                 <ScalarProperty Name="MaTV" ColumnName="MaTV" />

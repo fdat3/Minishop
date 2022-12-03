@@ -63,7 +63,6 @@ namespace E_Commerce.Controllers
             {
                 if (Hash.validatePassword(tv.MatKhau, currentAccount.MatKhau))
                 {
-                    Session.Add("TaiKhoan", tv.HoTen);
                     Session["TaiKhoan"] = tv;
                     return RedirectToAction("Index");
                 }

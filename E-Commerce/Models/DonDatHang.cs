@@ -25,7 +25,7 @@ namespace E_Commerce.Models
         public Nullable<bool> TinhTrangDH { get; set; }
         public Nullable<System.DateTime> NgayGiao { get; set; }
         public Nullable<bool> DaThanhToan { get; set; }
-        public Nullable<int> MaKhachHang { get; set; }
+        public int MaKhachHang { get; set; }
         public Nullable<int> UuDai { get; set; }
         public Nullable<bool> DaHuy { get; set; }
         public Nullable<bool> DaXoa { get; set; }

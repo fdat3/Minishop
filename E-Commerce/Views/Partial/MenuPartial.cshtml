@@ -10,14 +10,16 @@
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active"><a href=@Url.Action("Index", "Home") class="nav-link">Home</a></li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Catalog</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdown04">
-                        <a class="dropdown-item" href=@Url.Action("Cart", "Cart")>Cart</a>
-                        <a class="dropdown-item" href=@Url.Action("Cart", "Cart")>Checkout</a>
-                    </div>
-                </li>
+                @*<li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Catalog</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown04">
+                <a class="dropdown-item" href=@Url.Action("Cart", "Cart")>Cart</a>
+                <a class="dropdown-item" href=@Url.Action("Cart", "Cart")>Checkout</a>
+            </div>
+        </li>*@
+                <li class="nav-item"><a class="nav-link" href=@Url.Action("Index", "Login", new { Area = "AdminPage" })>Admin</a></li>
                 @*Hien thi so luong hang*@
+                <li class="nav-item"><a class="nav-link" href=@Url.Action("Index", "About")>About</a></li>
                 <li class="nav-item"><a class="nav-link" href=@Url.Action("Shop", "SanPham")>Shop</a></li>
                 <li class="nav-item"><a href=@Url.RouteUrl("Blog", new { controller = "Blog", action = "Index"}) class="nav-link">Blog</a></li>
                 <li class="nav-item"><a href=@Url.RouteUrl("Contact", new { controller = "Contact", action = "Index"}) class="nav-link">Contact</a></li>
@@ -28,7 +30,6 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hi, @tv.TaiKhoan</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown04">
-                            <a class="dropdown-item" href="cart.html">Thông tin tài khoản</a>
                             @Html.ActionLink("Đăng xuất", "DangXuat", "Home", new { @class = "dropdown-item" })
                         </div>
                     </li>

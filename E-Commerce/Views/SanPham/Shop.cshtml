@@ -57,18 +57,28 @@
                     <h2 class="heading">Categories</h2>
                     <div class="fancy-collapse-panel">
                         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                            @foreach (var lsSP in Model.GroupBy(n => n.LoaiSanPham))
-                            {
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingOne">
-                                        <h4 class="panel-title">
-                                            <a href="@Url.Action("MiniSearch", "Search", new { @MaLoaiSP = lsSP.Key.MaLoaiSP })">
-                                                @lsSP.Key.TenLoaiSP
-                                            </a>
-                                        </h4>
-                                    </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingOne">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            Các dòng sản phẩm
+                                        </a>
+                                    </h4>
                                 </div>
-                            }
+                                @foreach (var idProduct in Model.GroupBy(n => n.LoaiSanPham))
+                                {
+                                    if (idProduct.Key != null)
+                                    {
+                                        <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" style="">
+                                            <div class="panel-body">
+                                                <ul>
+                                                    <li><a href="@Url.Action("SearchResult", "Search", new {@search = idProduct.Key.TenLoaiSP})">@idProduct.Key.TenLoaiSP</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            </div>
                         </div>
                     </div>
                 </div>

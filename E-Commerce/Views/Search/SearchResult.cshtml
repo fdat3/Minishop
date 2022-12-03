@@ -1,7 +1,6 @@
 ﻿@using E_Commerce.Models
 @model  IEnumerable<SanPham>
 @{
-    ViewBag.keyword = "keyword";
     ViewBag.Title = "SearchResult";
     Layout = "~/Views/Layout/Shop.cshtml";
 }
@@ -40,7 +39,7 @@
                                     <p class="price"><span>@item.DonGia.Value.ToString("#,##") VND</span></p>
                                 </div>
                                 <p class="bottom-area d-flex px-3">
-                                    <a href="@Url.Action("AddCart", "Cart", new {@MaSP = item.MaSP, @strUrl = Request.Url.ToString()})" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                                    @Ajax.ActionLink("AddCart", "AddCart", "Cart", new { @MaSP = item.MaSP }, new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "Cart", InsertionMode = InsertionMode.Replace }, new { @class = "add-to-cart text-center py-2 mr-1" })
                                     <a href="#" class="buy-now text-center py-2">Buy now<span><i class="ion-ios-cart ml-1"></i></span></a>
                                 </p>
                             </div>
@@ -53,11 +52,12 @@
         <div class="col-md-12 col-lg-12">
             <div class="sidebar">
                 <div class="sidebar-box-2">
-                    @using (Ajax.BeginForm("TakeKeyword", "Search", null, new AjaxOptions { UpdateTargetId = "search-result", InsertionMode = InsertionMode.Replace }, new { @class = "search-form" }))
+                    @using (Ajax.BeginForm("TakeKeyword", "Search", null, new AjaxOptions { UpdateTargetId = "Cart", InsertionMode = InsertionMode.Replace }, new { @class = "search-form" }))
                     {
                         <div class="form-group">
                             <span class="icon ion-ios-search"></span>
-                            <input type="text" name="keyword" class="form-control" placeholder="Type a keyword and hit enter">
+                            @Html.TextBox("keyword", null, new { @class = "form-control", @placeholder = ViewBag.keyword })
+                            @*<input type="text" name="keyword" class="form-control" placeholder="Type a keyword and hit enter">*@
                         </div>
                     }
                 </div>

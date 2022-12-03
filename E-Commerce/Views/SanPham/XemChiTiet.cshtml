@@ -1,5 +1,4 @@
 ﻿@using E_Commerce.Models
-@model SanPham
 @{
     ViewBag.Title = "XemChiTiet";
     Layout = "~/Views/Layout/ProductLayout.cshtml";
@@ -29,7 +28,7 @@
                 <a href="#" class="mr-2" style="color: #000;"> @Model.SoLanMua <span style="color: #bbb;">Sản phẩm đã bán ra</span></a>
             </p>
         </div>
-        <p class="price"><span>@Model.DonGia.Value.ToString("#,##") VND</span></p>
+        <p class="price"><span>@Model.DonGia.ToString("#,##") VND</span></p>
         <p>@Model.ThongTin</p>
         <div class="row mt-4">
             <div class="col-md-6">

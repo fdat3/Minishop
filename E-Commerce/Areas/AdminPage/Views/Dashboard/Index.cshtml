@@ -1,0 +1,546 @@
+﻿@using E_Commerce.Models;
+@model ThanhVien
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/AdminPage/Views/Shared/_LayoutPage.cshtml";
+}
+
+<div class="content-wrapper" style="min-height: 902.75px;">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Dashboard
+            <small>Control panel</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Dashboard</li>
+        </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-aqua">
+                    <div class="inner">
+                        <h3>150</h3>
+
+                        <p>New Orders</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-bag"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-green">
+                    <div class="inner">
+                        <h3>53<sup style="font-size: 20px">%</sup></h3>
+
+                        <p>Bounce Rate</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-stats-bars"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-yellow">
+                    <div class="inner">
+                        <h3>44</h3>
+
+                        <p>User Registrations</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-person-add"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-red">
+                    <div class="inner">
+                        <h3>65</h3>
+
+                        <p>Unique Visitors</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-pie-graph"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- ./col -->
+        </div>
+        <!-- /.row -->
+        <!-- Main row -->
+        <div class="row">
+            <!-- Left col -->
+            <section class="col-lg-7 connectedSortable ui-sortable">
+                <!-- Custom tabs (Charts with tabs)-->
+                <div class="nav-tabs-custom" style="cursor: move;">
+                    <!-- Tabs within a box -->
+                    <ul class="nav nav-tabs pull-right ui-sortable-handle">
+                        <li class="active"><a href="#revenue-chart" data-toggle="tab">Area</a></li>
+                        <li><a href="#sales-chart" data-toggle="tab">Donut</a></li>
+                        <li class="pull-left header"><i class="fa fa-inbox"></i> Sales</li>
+                    </ul>
+                    <div class="tab-content no-padding">
+                        <!-- Morris chart - Sales -->
+                        <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: 300px; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                            <svg height="300" version="1.1" width="722.025" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative; top: -0.625px;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.2.0</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><text x="49.212501525878906" y="261.3999996185303" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan dy="4.400002479553223" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">0</tspan></text><path fill="none" stroke="#aaaaaa" d="M61.712501525878906,261.3999996185303H697.025" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="49.212501525878906" y="202.2999997138977" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan dy="4.399993419647217" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">7,500</tspan></text><path fill="none" stroke="#aaaaaa" d="M61.712501525878906,202.2999997138977H697.025" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="49.212501525878906" y="143.19999980926514" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan dy="4.399999618530273" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">15,000</tspan></text><path fill="none" stroke="#aaaaaa" d="M61.712501525878906,143.19999980926514H697.025" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="49.212501525878906" y="84.09999990463254" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan dy="4.39999818801877" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">22,500</tspan></text><path fill="none" stroke="#aaaaaa" d="M61.712501525878906,84.09999990463254H697.025" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="49.212501525878906" y="24.99999999999997" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan dy="4.399999618530245" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">30,000</tspan></text><path fill="none" stroke="#aaaaaa" d="M61.712501525878906,24.99999999999997H697.025" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="580.4609814464249" y="273.8999996185303" text-anchor="middle" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal" transform="matrix(1,0,0,1,0,6.8)"><tspan dy="4.39998722076416" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2013</tspan></text><text x="297.9283272039847" y="273.8999996185303" text-anchor="middle" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal" transform="matrix(1,0,0,1,0,6.8)"><tspan dy="4.39998722076416" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2012</tspan></text><path fill="#74a5c2" stroke="none" d="M61.712501525878906,219.38383968633016C79.46728580887378,219.89603968550364,114.97685437486354,222.958404680562,132.7316386578584,221.4326396830241C150.4864229408533,219.90687468548617,185.99599150684304,209.44767642367526,203.75077578983792,207.17771970602672C221.31257328714807,204.93243643096133,256.43616828176835,205.18703470923901,273.9979657790785,203.37167971216837C291.5597632763887,201.55632471509773,326.68335827100896,195.20090557234778,344.24515576831914,192.65487972946167C361.999940051314,190.08087558060978,397.50950861730377,182.78419474538958,415.26429290029864,182.89155974521634C433.0190771832935,182.9989247450431,468.52864574928327,204.48426681419815,486.28343003227815,193.51379972807564C503.8452275295883,182.66257684941098,538.9688225242086,102.0743669474512,556.5306200215188,95.6047998860677C573.8994307331442,89.20632696821588,608.637052156395,135.3246975142809,626.0058628680205,142.04163981113433C643.7606471510153,148.9078474923623,679.2702157170052,147.96345980157852,697.025,149.93739979839324L697.025,261.3999996185303L61.712501525878906,261.3999996185303Z" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></path><path fill="none" stroke="#3c8dbc" d="M61.712501525878906,219.38383968633016C79.46728580887378,219.89603968550364,114.97685437486354,222.958404680562,132.7316386578584,221.4326396830241C150.4864229408533,219.90687468548617,185.99599150684304,209.44767642367526,203.75077578983792,207.17771970602672C221.31257328714807,204.93243643096133,256.43616828176835,205.18703470923901,273.9979657790785,203.37167971216837C291.5597632763887,201.55632471509773,326.68335827100896,195.20090557234778,344.24515576831914,192.65487972946167C361.999940051314,190.08087558060978,397.50950861730377,182.78419474538958,415.26429290029864,182.89155974521634C433.0190771832935,182.9989247450431,468.52864574928327,204.48426681419815,486.28343003227815,193.51379972807564C503.8452275295883,182.66257684941098,538.9688225242086,102.0743669474512,556.5306200215188,95.6047998860677C573.8994307331442,89.20632696821588,608.637052156395,135.3246975142809,626.0058628680205,142.04163981113433C643.7606471510153,148.9078474923623,679.2702157170052,147.96345980157852,697.025,149.93739979839324" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><circle cx="61.712501525878906" cy="219.38383968633016" r="4" fill="#3c8dbc" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="132.7316386578584" cy="221.4326396830241" r="4" fill="#3c8dbc" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="203.75077578983792" cy="207.17771970602672" r="4" fill="#3c8dbc" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="273.9979657790785" cy="203.37167971216837" r="4" fill="#3c8dbc" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="344.24515576831914" cy="192.65487972946167" r="4" fill="#3c8dbc" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="415.26429290029864" cy="182.89155974521634" r="4" fill="#3c8dbc" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="486.28343003227815" cy="193.51379972807564" r="4" fill="#3c8dbc" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="556.5306200215188" cy="95.6047998860677" r="4" fill="#3c8dbc" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="626.0058628680205" cy="142.04163981113433" r="4" fill="#3c8dbc" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="697.025" cy="149.93739979839324" r="4" fill="#3c8dbc" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><path fill="#eaf3f6" stroke="none" d="M61.712501525878906,240.3919196524302C79.46728580887378,240.17127965278624,114.97685437486354,241.72166965028447,132.7316386578584,239.50935965385437C150.4864229408533,237.29704965742428,185.99599150684304,223.67292798541993,203.75077578983792,222.69343968098957C221.31257328714807,221.7245979885639,256.43616828176835,233.58556966341337,273.9979657790785,231.71603966643016C291.5597632763887,229.84650966944696,326.68335827100896,209.6014117786184,344.24515576831914,207.73719970512388C361.999940051314,205.85250178466788,397.50950861730377,214.76024969379108,415.26429290029864,216.72039969062806C433.0190771832935,218.68054968746503,468.52864574928327,232.7309664407487,486.28343003227815,223.41839967981974C503.8452275295883,214.20705647064003,538.9688225242086,148.43568294998778,556.5306200215188,142.62475981019338C573.8994307331442,136.87769296863848,608.637052156395,170.71693811651045,626.0058628680205,177.1864397544225C643.7606471510153,183.79970809539927,679.2702157170052,190.51348973291715,697.025,194.9558397257487L697.025,261.3999996185303L61.712501525878906,261.3999996185303Z" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></path><path fill="none" stroke="#a0d0e0" d="M61.712501525878906,240.3919196524302C79.46728580887378,240.17127965278624,114.97685437486354,241.72166965028447,132.7316386578584,239.50935965385437C150.4864229408533,237.29704965742428,185.99599150684304,223.67292798541993,203.75077578983792,222.69343968098957C221.31257328714807,221.7245979885639,256.43616828176835,233.58556966341337,273.9979657790785,231.71603966643016C291.5597632763887,229.84650966944696,326.68335827100896,209.6014117786184,344.24515576831914,207.73719970512388C361.999940051314,205.85250178466788,397.50950861730377,214.76024969379108,415.26429290029864,216.72039969062806C433.0190771832935,218.68054968746503,468.52864574928327,232.7309664407487,486.28343003227815,223.41839967981974C503.8452275295883,214.20705647064003,538.9688225242086,148.43568294998778,556.5306200215188,142.62475981019338C573.8994307331442,136.87769296863848,608.637052156395,170.71693811651045,626.0058628680205,177.1864397544225C643.7606471510153,183.79970809539927,679.2702157170052,190.51348973291715,697.025,194.9558397257487" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><circle cx="61.712501525878906" cy="240.3919196524302" r="4" fill="#a0d0e0" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="132.7316386578584" cy="239.50935965385437" r="4" fill="#a0d0e0" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="203.75077578983792" cy="222.69343968098957" r="4" fill="#a0d0e0" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="273.9979657790785" cy="231.71603966643016" r="4" fill="#a0d0e0" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="344.24515576831914" cy="207.73719970512388" r="4" fill="#a0d0e0" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="415.26429290029864" cy="216.72039969062806" r="4" fill="#a0d0e0" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="486.28343003227815" cy="223.41839967981974" r="4" fill="#a0d0e0" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="556.5306200215188" cy="142.62475981019338" r="4" fill="#a0d0e0" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="626.0058628680205" cy="177.1864397544225" r="4" fill="#a0d0e0" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="697.025" cy="194.9558397257487" r="4" fill="#a0d0e0" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle></svg><div class="morris-hover morris-default-style" style="left: 18.6875px; top: 154px; display: none;">
+                                <div class="morris-hover-row-label">2011 Q1</div><div class="morris-hover-point" style="color: #a0d0e0">
+                                    Item 1:
+                                    2,666
+                                </div><div class="morris-hover-point" style="color: #3c8dbc">
+                                    Item 2:
+                                    2,666
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;"><svg height="300" version="1.1" width="752.025" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.2.0</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><path fill="none" stroke="#3c8dbc" d="M376.0125,243.33333333333331A93.33333333333333,93.33333333333333,0,0,0,464.24025519497707,180.44625304313007" stroke-width="2" opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0;"></path><path fill="#3c8dbc" stroke="#ffffff" d="M376.0125,246.33333333333331A96.33333333333333,96.33333333333333,0,0,0,467.07614732624415,181.4248826052307L503.6276459070204,194.03833029452744A135,135,0,0,1,376.0125,285Z" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><path fill="none" stroke="#f56954" d="M464.24025519497707,180.44625304313007A93.33333333333333,93.33333333333333,0,0,0,292.2973462783141,108.73398312817662" stroke-width="2" opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 1;"></path><path fill="#f56954" stroke="#ffffff" d="M467.07614732624415,181.4248826052307A96.33333333333333,96.33333333333333,0,0,0,289.60650205154565,107.40757544301087L250.43976941747115,88.10097469226493A140,140,0,0,1,508.35413279246563,195.6693795646951Z" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><path fill="none" stroke="#00a65a" d="M292.2973462783141,108.73398312817662A93.33333333333333,93.33333333333333,0,0,0,375.9831784690488,243.333328727518" stroke-width="2" opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0;"></path><path fill="#00a65a" stroke="#ffffff" d="M289.60650205154565,107.40757544301087A96.33333333333333,96.33333333333333,0,0,0,375.9822359912682,246.3333285794739L375.9700884998742,284.9999933380171A135,135,0,0,1,254.9245097954186,90.31165416754118Z" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="376.0125" y="140" text-anchor="middle" font-family="&quot;Arial&quot;" font-size="15px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: Arial; font-size: 15px; font-weight: 800;" font-weight="800" transform="matrix(1,0,0,1,0,0)"><tspan dy="140" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">In-Store Sales</tspan></text><text x="376.0125" y="160" text-anchor="middle" font-family="&quot;Arial&quot;" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: Arial; font-size: 14px;" transform="matrix(1,0,0,1,0,0)"><tspan dy="160" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">30</tspan></text></svg></div>
+                    </div>
+                </div>
+                <!-- /.nav-tabs-custom -->
+                <!-- Chat box -->
+                <div class="box box-success">
+                    <div class="box-header ui-sortable-handle" style="cursor: move;">
+                        <i class="fa fa-comments-o"></i>
+
+                        <h3 class="box-title">Chat</h3>
+
+                        <div class="box-tools pull-right" data-toggle="tooltip" title="" data-original-title="Status">
+                            <div class="btn-group" data-toggle="btn-toggle">
+                                <button type="button" class="btn btn-default btn-sm active">
+                                    <i class="fa fa-square text-green"></i>
+                                </button>
+                                <button type="button" class="btn btn-default btn-sm"><i class="fa fa-square text-red"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 250px;">
+                        <div class="box-body chat" id="chat-box" style="overflow: hidden; width: auto; height: 250px;">
+                            <!-- chat item -->
+                            <div class="item">
+                                <img src="~/Areas/Content/img/user4-128x128.jpg" alt="user image" class="online">
+
+                                <p class="message">
+                                    <a href="#" class="name">
+                                        <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 2:15</small>
+                                        Mike Doe
+                                    </a>
+                                    I would like to meet you to discuss the latest news about
+                                    the arrival of the new theme. They say it is going to be one the
+                                    best themes on the market
+                                </p>
+                                <div class="attachment">
+                                    <h4>Attachments:</h4>
+
+                                    <p class="filename">
+                                        Theme-thumbnail-image.jpg
+                                    </p>
+
+                                    <div class="pull-right">
+                                        <button type="button" class="btn btn-primary btn-sm btn-flat">Open</button>
+                                    </div>
+                                </div>
+                                <!-- /.attachment -->
+                            </div>
+                            <!-- /.item -->
+                            <!-- chat item -->
+                            <div class="item">
+                                <img src="~/Areas/Content/img/user3-128x128.jpg" alt="user image" class="offline">
+
+                                <p class="message">
+                                    <a href="#" class="name">
+                                        <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 5:15</small>
+                                        @if (Session["TaiKhoan"] != null && Session["TaiKhoan"] != "")
+                                        {
+                                            ThanhVien tv = (ThanhVien)Session["TaiKhoan"]; 
+                                            <p>@tv.HoTen</p>
+                                        
+                                        }
+                                        </a>
+                                    I would like to meet you to discuss the latest news about
+                                    the arrival of the new theme. They say it is going to be one the
+                                    best themes on the market
+                                </p>
+                            </div>
+                            <!-- /.item -->
+                            <!-- chat item -->
+                            <div class="item">
+                                <img src="~/Areas/Content/img/user4-128x128.jpg" alt="user image" class="offline">
+
+                                <p class="message">
+                                    <a href="#" class="name">
+                                        <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 5:30</small>
+                                        Susan Doe
+                                    </a>
+                                    I would like to meet you to discuss the latest news about
+                                    the arrival of the new theme. They say it is going to be one the
+                                    best themes on the market
+                                </p>
+                            </div>
+                            <!-- /.item -->
+                        </div><div class="slimScrollBar" style="background: rgb(0, 0, 0); width: 7px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 184.366px;"></div><div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div>
+                    </div>
+                    <!-- /.chat -->
+                    <div class="box-footer">
+                        <div class="input-group">
+                            <input class="form-control" placeholder="Type message...">
+
+                            <div class="input-group-btn">
+                                <button type="button" class="btn btn-success"><i class="fa fa-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.box (chat box) -->
+                <!-- TO DO List -->
+                <div class="box box-primary">
+                    <div class="box-header ui-sortable-handle" style="cursor: move;">
+                        <i class="ion ion-clipboard"></i>
+
+                        <h3 class="box-title">To Do List</h3>
+
+                        <div class="box-tools pull-right">
+                            <ul class="pagination pagination-sm inline">
+                                <li><a href="#">«</a></li>
+                                <li><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">»</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <!-- See dist/js/pages/dashboard.js to activate the todoList plugin -->
+                        <ul class="todo-list ui-sortable">
+                            <li>
+                                <!-- drag handle -->
+                                <span class="handle ui-sortable-handle">
+                                    <i class="fa fa-ellipsis-v"></i>
+                                    <i class="fa fa-ellipsis-v"></i>
+                                </span>
+                                <!-- checkbox -->
+                                <input type="checkbox" value="">
+                                <!-- todo text -->
+                                <span class="text">Design a nice theme</span>
+                                <!-- Emphasis label -->
+                                <small class="label label-danger"><i class="fa fa-clock-o"></i> 2 mins</small>
+                                <!-- General tools such as edit or delete-->
+                                <div class="tools">
+                                    <i class="fa fa-edit"></i>
+                                    <i class="fa fa-trash-o"></i>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="handle ui-sortable-handle">
+                                    <i class="fa fa-ellipsis-v"></i>
+                                    <i class="fa fa-ellipsis-v"></i>
+                                </span>
+                                <input type="checkbox" value="">
+                                <span class="text">Make the theme responsive</span>
+                                <small class="label label-info"><i class="fa fa-clock-o"></i> 4 hours</small>
+                                <div class="tools">
+                                    <i class="fa fa-edit"></i>
+                                    <i class="fa fa-trash-o"></i>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="handle ui-sortable-handle">
+                                    <i class="fa fa-ellipsis-v"></i>
+                                    <i class="fa fa-ellipsis-v"></i>
+                                </span>
+                                <input type="checkbox" value="">
+                                <span class="text">Let theme shine like a star</span>
+                                <small class="label label-warning"><i class="fa fa-clock-o"></i> 1 day</small>
+                                <div class="tools">
+                                    <i class="fa fa-edit"></i>
+                                    <i class="fa fa-trash-o"></i>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="handle ui-sortable-handle">
+                                    <i class="fa fa-ellipsis-v"></i>
+                                    <i class="fa fa-ellipsis-v"></i>
+                                </span>
+                                <input type="checkbox" value="">
+                                <span class="text">Let theme shine like a star</span>
+                                <small class="label label-success"><i class="fa fa-clock-o"></i> 3 days</small>
+                                <div class="tools">
+                                    <i class="fa fa-edit"></i>
+                                    <i class="fa fa-trash-o"></i>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="handle ui-sortable-handle">
+                                    <i class="fa fa-ellipsis-v"></i>
+                                    <i class="fa fa-ellipsis-v"></i>
+                                </span>
+                                <input type="checkbox" value="">
+                                <span class="text">Check your messages and notifications</span>
+                                <small class="label label-primary"><i class="fa fa-clock-o"></i> 1 week</small>
+                                <div class="tools">
+                                    <i class="fa fa-edit"></i>
+                                    <i class="fa fa-trash-o"></i>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="handle ui-sortable-handle">
+                                    <i class="fa fa-ellipsis-v"></i>
+                                    <i class="fa fa-ellipsis-v"></i>
+                                </span>
+                                <input type="checkbox" value="">
+                                <span class="text">Let theme shine like a star</span>
+                                <small class="label label-default"><i class="fa fa-clock-o"></i> 1 month</small>
+                                <div class="tools">
+                                    <i class="fa fa-edit"></i>
+                                    <i class="fa fa-trash-o"></i>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="box-footer clearfix no-border">
+                        <button type="button" class="btn btn-default pull-right"><i class="fa fa-plus"></i> Add item</button>
+                    </div>
+                </div>
+                <!-- /.box -->
+                <!-- quick email widget -->
+                <div class="box box-info">
+                    <div class="box-header ui-sortable-handle" style="cursor: move;">
+                        <i class="fa fa-envelope"></i>
+
+                        <h3 class="box-title">Quick Email</h3>
+                        <!-- tools box -->
+                        <div class="pull-right box-tools">
+                            <button type="button" class="btn btn-info btn-sm" data-widget="remove" data-toggle="tooltip" title="" data-original-title="Remove">
+                                <i class="fa fa-times"></i>
+                            </button>
+                        </div>
+                        <!-- /. tools -->
+                    </div>
+                    <div class="box-body">
+                        <form action="#" method="post">
+                            <div class="form-group">
+                                <input type="email" class="form-control" name="emailto" placeholder="Email to:">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="subject" placeholder="Subject">
+                            </div>
+                            <div>
+                                <textarea class="textarea" style="width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid rgb(221, 221, 221); padding: 10px; display: none;" placeholder="Message"></textarea><input type="hidden" name="_wysihtml5_mode" value="1"><iframe class="wysihtml5-sandbox" security="restricted" allowtransparency="true" frameborder="0" width="0" height="0" marginwidth="0" marginheight="0" style="display: inline-block; background-color: rgb(255, 255, 255); border-collapse: separate; border-color: rgb(221, 221, 221); border-style: solid; border-width: 1px; clear: none; float: none; margin: 0px; outline: rgb(51, 51, 51) none 0px; outline-offset: 0px; padding: 10px; position: static; inset: auto; z-index: auto; vertical-align: baseline; text-align: start; box-sizing: border-box; box-shadow: none; border-radius: 0px; width: 100%; height: 125px;"></iframe>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="box-footer clearfix">
+                        <button type="button" class="pull-right btn btn-default" id="sendEmail">
+                            Send
+                            <i class="fa fa-arrow-circle-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </section>
+            <!-- /.Left col -->
+            <!-- right col (We are only adding the ID to make the widgets sortable)-->
+            <section class="col-lg-5 connectedSortable ui-sortable">
+
+                <!-- Map box -->
+                <div class="box box-solid bg-light-blue-gradient">
+                    <div class="box-header ui-sortable-handle" style="cursor: move;">
+                        <!-- tools box -->
+                        <div class="pull-right box-tools">
+                            <button type="button" class="btn btn-primary btn-sm daterange pull-right" data-toggle="tooltip" title="" data-original-title="Date range">
+                                <i class="fa fa-calendar"></i>
+                            </button>
+                            <button type="button" class="btn btn-primary btn-sm pull-right" data-widget="collapse" data-toggle="tooltip" title="" style="margin-right: 5px;" data-original-title="Collapse">
+                                <i class="fa fa-minus"></i>
+                            </button>
+                        </div>
+                        <!-- /. tools -->
+
+                        <i class="fa fa-map-marker"></i>
+
+                        <h3 class="box-title">
+                            Visitors
+                        </h3>
+                    </div>
+                    <!-- /.box-body-->
+                    <div class="box-footer no-border">
+                        <div class="row">
+                            <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
+                                <div id="sparkline-1"><canvas width="80" height="50" style="display: inline-block; width: 80px; height: 50px; vertical-align: top;"></canvas></div>
+                                <div class="knob-label">Visitors</div>
+                            </div>
+                            <!-- ./col -->
+                            <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
+                                <div id="sparkline-2"><canvas width="80" height="50" style="display: inline-block; width: 80px; height: 50px; vertical-align: top;"></canvas></div>
+                                <div class="knob-label">Online</div>
+                            </div>
+                            <!-- ./col -->
+                            <div class="col-xs-4 text-center">
+                                <div id="sparkline-3"><canvas width="80" height="50" style="display: inline-block; width: 80px; height: 50px; vertical-align: top;"></canvas></div>
+                                <div class="knob-label">Exists</div>
+                            </div>
+                            <!-- ./col -->
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                </div>
+                <!-- /.box -->
+                <!-- solid sales graph -->
+                <div class="box box-solid bg-teal-gradient">
+                    <div class="box-header ui-sortable-handle" style="cursor: move;">
+                        <i class="fa fa-th"></i>
+
+                        <h3 class="box-title">Sales Graph</h3>
+
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn bg-teal btn-sm" data-widget="collapse">
+                                <i class="fa fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn bg-teal btn-sm" data-widget="remove">
+                                <i class="fa fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="box-body border-radius-none">
+                        <div class="chart" id="line-chart" style="height: 250px; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                            <svg height="250" version="1.1" width="487.163" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative; left: -0.025px; top: -0.9625px;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.2.0</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><text x="40.60000038146973" y="213.80000019073486" text-anchor="end" font-family="Open Sans" font-size="10px" stroke="none" fill="#ffffff" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: &quot;Open Sans&quot;; font-size: 10px; font-weight: normal;" font-weight="normal"><tspan dy="3.200000286102295" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">0</tspan></text><path fill="none" stroke="#efefef" d="M53.10000038146973,213.80000019073486H462.163" stroke-width="0.4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="40.60000038146973" y="166.60000014305115" text-anchor="end" font-family="Open Sans" font-size="10px" stroke="none" fill="#ffffff" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: &quot;Open Sans&quot;; font-size: 10px; font-weight: normal;" font-weight="normal"><tspan dy="3.1999971866607666" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">5,000</tspan></text><path fill="none" stroke="#efefef" d="M53.10000038146973,166.60000014305115H462.163" stroke-width="0.4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="40.60000038146973" y="119.40000009536743" text-anchor="end" font-family="Open Sans" font-size="10px" stroke="none" fill="#ffffff" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: &quot;Open Sans&quot;; font-size: 10px; font-weight: normal;" font-weight="normal"><tspan dy="3.2000017166137695" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">10,000</tspan></text><path fill="none" stroke="#efefef" d="M53.10000038146973,119.40000009536743H462.163" stroke-width="0.4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="40.60000038146973" y="72.20000004768372" text-anchor="end" font-family="Open Sans" font-size="10px" stroke="none" fill="#ffffff" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: &quot;Open Sans&quot;; font-size: 10px; font-weight: normal;" font-weight="normal"><tspan dy="3.199998617172241" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">15,000</tspan></text><path fill="none" stroke="#efefef" d="M53.10000038146973,72.20000004768372H462.163" stroke-width="0.4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="40.60000038146973" y="25" text-anchor="end" font-family="Open Sans" font-size="10px" stroke="none" fill="#ffffff" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: &quot;Open Sans&quot;; font-size: 10px; font-weight: normal;" font-weight="normal"><tspan dy="3.1999993324279785" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">20,000</tspan></text><path fill="none" stroke="#efefef" d="M53.10000038146973,25H462.163" stroke-width="0.4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="387.110128867074" y="226.30000019073486" text-anchor="middle" font-family="Open Sans" font-size="10px" stroke="none" fill="#ffffff" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: &quot;Open Sans&quot;; font-size: 10px; font-weight: normal;" font-weight="normal" transform="matrix(1,0,0,1,0,5.6)"><tspan dy="3.200000286102295" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2013</tspan></text><text x="205.19389817402168" y="226.30000019073486" text-anchor="middle" font-family="Open Sans" font-size="10px" stroke="none" fill="#ffffff" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: &quot;Open Sans&quot;; font-size: 10px; font-weight: normal;" font-weight="normal" transform="matrix(1,0,0,1,0,5.6)"><tspan dy="3.200000286102295" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2012</tspan></text><path fill="none" stroke="#efefef" d="M53.10000038146973,188.6329601653099C64.53189465999488,188.36864016504288,87.39568321704517,190.22596016691924,98.82757749557032,187.5756801642418C110.25947177409547,184.92540016156434,133.1232603311458,168.60411730354573,144.55515460967092,167.43072014389037C155.86278916777732,166.27007730118777,178.4780582839901,180.47916015707256,189.7856928420965,178.23952015480995C201.0933274002029,175.99988015254735,223.70859651641567,151.7468694176633,235.01623107452207,149.51360012578965C246.4481253530472,147.2557894131262,269.31191391009753,157.92700013428927,280.74380818862267,160.27520013666154C292.1757024671478,162.6234001390338,315.0394910241981,179.4553715221585,326.47138530272326,168.29920014476775C337.77901986082964,157.26429149973998,360.39428897704244,78.47218900429641,371.7019235351488,71.51088004698752C382.8852983728365,64.6260689903084,405.25204804821175,105.16445414692005,416.4354228858994,112.91472008881568C427.86731716442455,120.83721416275344,450.7311057214749,128.88012010494472,462.163,134.20192011032105" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><circle cx="53.10000038146973" cy="188.6329601653099" r="4" fill="#efefef" stroke="#efefef" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="98.82757749557032" cy="187.5756801642418" r="4" fill="#efefef" stroke="#efefef" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="144.55515460967092" cy="167.43072014389037" r="4" fill="#efefef" stroke="#efefef" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="189.7856928420965" cy="178.23952015480995" r="4" fill="#efefef" stroke="#efefef" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="235.01623107452207" cy="149.51360012578965" r="4" fill="#efefef" stroke="#efefef" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="280.74380818862267" cy="160.27520013666154" r="4" fill="#efefef" stroke="#efefef" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="326.47138530272326" cy="168.29920014476775" r="4" fill="#efefef" stroke="#efefef" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="371.7019235351488" cy="71.51088004698752" r="4" fill="#efefef" stroke="#efefef" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="416.4354228858994" cy="112.91472008881568" r="4" fill="#efefef" stroke="#efefef" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="462.163" cy="134.20192011032105" r="4" fill="#efefef" stroke="#efefef" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle></svg><div class="morris-hover morris-default-style" style="left: 10.075px; top: 121px; display: none;">
+                                <div class="morris-hover-row-label">2011 Q1</div><div class="morris-hover-point" style="color: #efefef">
+                                    Item 1:
+                                    2,666
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="box-footer no-border">
+                        <div class="row">
+                            <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
+                                <div style="display:inline;width:60px;height:60px;"><canvas width="75" height="75" style="width: 60px; height: 60px;"></canvas><input type="text" class="knob" data-readonly="true" value="20" data-width="60" data-height="60" data-fgcolor="#39CCCC" readonly="readonly" style="width: 34px; height: 20px; position: absolute; vertical-align: middle; margin-top: 20px; margin-left: -47px; border: 0px; background: none; font: bold 12px Arial; text-align: center; color: rgb(57, 204, 204); padding: 0px; appearance: none;"></div>
+
+                                <div class="knob-label">Mail-Orders</div>
+                            </div>
+                            <!-- ./col -->
+                            <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
+                                <div style="display:inline;width:60px;height:60px;"><canvas width="75" height="75" style="width: 60px; height: 60px;"></canvas><input type="text" class="knob" data-readonly="true" value="50" data-width="60" data-height="60" data-fgcolor="#39CCCC" readonly="readonly" style="width: 34px; height: 20px; position: absolute; vertical-align: middle; margin-top: 20px; margin-left: -47px; border: 0px; background: none; font: bold 12px Arial; text-align: center; color: rgb(57, 204, 204); padding: 0px; appearance: none;"></div>
+
+                                <div class="knob-label">Online</div>
+                            </div>
+                            <!-- ./col -->
+                            <div class="col-xs-4 text-center">
+                                <div style="display:inline;width:60px;height:60px;"><canvas width="75" height="75" style="width: 60px; height: 60px;"></canvas><input type="text" class="knob" data-readonly="true" value="30" data-width="60" data-height="60" data-fgcolor="#39CCCC" readonly="readonly" style="width: 34px; height: 20px; position: absolute; vertical-align: middle; margin-top: 20px; margin-left: -47px; border: 0px; background: none; font: bold 12px Arial; text-align: center; color: rgb(57, 204, 204); padding: 0px; appearance: none;"></div>
+
+                                <div class="knob-label">In-Store</div>
+                            </div>
+                            <!-- ./col -->
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                    <!-- /.box-footer -->
+                </div>
+                <!-- /.box -->
+                <!-- Calendar -->
+                <div class="box box-solid bg-green-gradient">
+                    <div class="box-header ui-sortable-handle" style="cursor: move;">
+                        <i class="fa fa-calendar"></i>
+
+                        <h3 class="box-title">Calendar</h3>
+                        <!-- tools box -->
+                        <div class="pull-right box-tools">
+                            <!-- button with a dropdown -->
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-bars"></i>
+                                </button>
+                                <ul class="dropdown-menu pull-right" role="menu">
+                                    <li><a href="#">Add new event</a></li>
+                                    <li><a href="#">Clear events</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">View calendar</a></li>
+                                </ul>
+                            </div>
+                            <button type="button" class="btn btn-success btn-sm" data-widget="collapse">
+                                <i class="fa fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-success btn-sm" data-widget="remove">
+                                <i class="fa fa-times"></i>
+                            </button>
+                        </div>
+                        <!-- /. tools -->
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body no-padding">
+                        <!--The calendar -->
+                        <div id="calendar" style="width: 100%"><div class="datepicker datepicker-inline"><div class="datepicker-days" style=""><table class="table-condensed"><thead><tr><th colspan="7" class="datepicker-title" style="display: none;"></th></tr><tr><th class="prev">«</th><th colspan="5" class="datepicker-switch">November 2022</th><th class="next">»</th></tr><tr><th class="dow">Su</th><th class="dow">Mo</th><th class="dow">Tu</th><th class="dow">We</th><th class="dow">Th</th><th class="dow">Fr</th><th class="dow">Sa</th></tr></thead><tbody><tr><td class="old day" data-date="1667088000000">30</td><td class="old day" data-date="1667174400000">31</td><td class="day" data-date="1667260800000">1</td><td class="day" data-date="1667347200000">2</td><td class="day" data-date="1667433600000">3</td><td class="day" data-date="1667520000000">4</td><td class="day" data-date="1667606400000">5</td></tr><tr><td class="day" data-date="1667692800000">6</td><td class="day" data-date="1667779200000">7</td><td class="day" data-date="1667865600000">8</td><td class="day" data-date="1667952000000">9</td><td class="day" data-date="1668038400000">10</td><td class="day" data-date="1668124800000">11</td><td class="day" data-date="1668211200000">12</td></tr><tr><td class="day" data-date="1668297600000">13</td><td class="day" data-date="1668384000000">14</td><td class="day" data-date="1668470400000">15</td><td class="day" data-date="1668556800000">16</td><td class="day" data-date="1668643200000">17</td><td class="day" data-date="1668729600000">18</td><td class="day" data-date="1668816000000">19</td></tr><tr><td class="day" data-date="1668902400000">20</td><td class="day" data-date="1668988800000">21</td><td class="day" data-date="1669075200000">22</td><td class="day" data-date="1669161600000">23</td><td class="day" data-date="1669248000000">24</td><td class="day" data-date="1669334400000">25</td><td class="day" data-date="1669420800000">26</td></tr><tr><td class="day" data-date="1669507200000">27</td><td class="day" data-date="1669593600000">28</td><td class="day" data-date="1669680000000">29</td><td class="day" data-date="1669766400000">30</td><td class="new day" data-date="1669852800000">1</td><td class="new day" data-date="1669939200000">2</td><td class="new day" data-date="1670025600000">3</td></tr><tr><td class="new day" data-date="1670112000000">4</td><td class="new day" data-date="1670198400000">5</td><td class="new day" data-date="1670284800000">6</td><td class="new day" data-date="1670371200000">7</td><td class="new day" data-date="1670457600000">8</td><td class="new day" data-date="1670544000000">9</td><td class="new day" data-date="1670630400000">10</td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">Today</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div><div class="datepicker-months" style="display: none;"><table class="table-condensed"><thead><tr><th colspan="7" class="datepicker-title" style="display: none;"></th></tr><tr><th class="prev">«</th><th colspan="5" class="datepicker-switch">2022</th><th class="next">»</th></tr></thead><tbody><tr><td colspan="7"><span class="month">Jan</span><span class="month">Feb</span><span class="month">Mar</span><span class="month">Apr</span><span class="month">May</span><span class="month">Jun</span><span class="month">Jul</span><span class="month">Aug</span><span class="month">Sep</span><span class="month">Oct</span><span class="month focused">Nov</span><span class="month">Dec</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">Today</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div><div class="datepicker-years" style="display: none;"><table class="table-condensed"><thead><tr><th colspan="7" class="datepicker-title" style="display: none;"></th></tr><tr><th class="prev">«</th><th colspan="5" class="datepicker-switch">2020-2029</th><th class="next">»</th></tr></thead><tbody><tr><td colspan="7"><span class="year old">2019</span><span class="year">2020</span><span class="year">2021</span><span class="year focused">2022</span><span class="year">2023</span><span class="year">2024</span><span class="year">2025</span><span class="year">2026</span><span class="year">2027</span><span class="year">2028</span><span class="year">2029</span><span class="year new">2030</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">Today</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div><div class="datepicker-decades" style="display: none;"><table class="table-condensed"><thead><tr><th colspan="7" class="datepicker-title" style="display: none;"></th></tr><tr><th class="prev">«</th><th colspan="5" class="datepicker-switch">2000-2090</th><th class="next">»</th></tr></thead><tbody><tr><td colspan="7"><span class="decade old">1990</span><span class="decade">2000</span><span class="decade">2010</span><span class="decade focused">2020</span><span class="decade">2030</span><span class="decade">2040</span><span class="decade">2050</span><span class="decade">2060</span><span class="decade">2070</span><span class="decade">2080</span><span class="decade">2090</span><span class="decade new">2100</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">Today</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div><div class="datepicker-centuries" style="display: none;"><table class="table-condensed"><thead><tr><th colspan="7" class="datepicker-title" style="display: none;"></th></tr><tr><th class="prev">«</th><th colspan="5" class="datepicker-switch">2000-2900</th><th class="next">»</th></tr></thead><tbody><tr><td colspan="7"><span class="century old">1900</span><span class="century focused">2000</span><span class="century">2100</span><span class="century">2200</span><span class="century">2300</span><span class="century">2400</span><span class="century">2500</span><span class="century">2600</span><span class="century">2700</span><span class="century">2800</span><span class="century">2900</span><span class="century new">3000</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">Today</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div></div></div>
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="box-footer text-black">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <!-- Progress bars -->
+                                <div class="clearfix">
+                                    <span class="pull-left">Task #1</span>
+                                    <small class="pull-right">90%</small>
+                                </div>
+                                <div class="progress xs">
+                                    <div class="progress-bar progress-bar-green" style="width: 90%;"></div>
+                                </div>
+
+                                <div class="clearfix">
+                                    <span class="pull-left">Task #2</span>
+                                    <small class="pull-right">70%</small>
+                                </div>
+                                <div class="progress xs">
+                                    <div class="progress-bar progress-bar-green" style="width: 70%;"></div>
+                                </div>
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-sm-6">
+                                <div class="clearfix">
+                                    <span class="pull-left">Task #3</span>
+                                    <small class="pull-right">60%</small>
+                                </div>
+                                <div class="progress xs">
+                                    <div class="progress-bar progress-bar-green" style="width: 60%;"></div>
+                                </div>
+
+                                <div class="clearfix">
+                                    <span class="pull-left">Task #4</span>
+                                    <small class="pull-right">40%</small>
+                                </div>
+                                <div class="progress xs">
+                                    <div class="progress-bar progress-bar-green" style="width: 40%;"></div>
+                                </div>
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                </div>
+                <!-- /.box -->
+
+            </section>
+            <!-- right col -->
+        </div>
+        <!-- /.row (main row) -->
+
+    </section>
+    <!-- /.content -->
+</div>
+

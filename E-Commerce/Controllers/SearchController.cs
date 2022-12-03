@@ -19,12 +19,6 @@ namespace E_Commerce.Controllers
             return View(lsSP);
         }
 
-        public ActionResult MiniSearch(int? MaLoaiSP)
-        {
-            List<SanPham> lstSP = Product.getProductByType(MaLoaiSP);
-            return View(lstSP);
-        }
-
         //AutoComplete
 
         public JsonResult GetSearchValue(string search)
@@ -38,18 +32,6 @@ namespace E_Commerce.Controllers
             return new JsonResult { Data = allsearch, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
 
-
-        /*public JsonResult GetValueSearch(string search)
-        {
-            QuanLySanPhamEntities db = new QuanLySanPhamEntities();
-            List<Product> allItem = db.SanPhams.Where(n => n.TenSP.Contains(search))
-            .Select(n => new Product
-            {
-                MaSP = n.MaSP,
-                TenSP = n.TenSP
-            }).ToList();
-            return new JsonResult { Data = allItem, JsonRequestBehavior = JsonRequestBehavior.AllowGet }; 
-        }*/
 
         [HttpPost]
         public ActionResult TakeKeyword(string search)

@@ -14,14 +14,11 @@ namespace E_Commerce.Controllers
         QuanLySanPhamEntities db = new QuanLySanPhamEntities();
 
         // Tao Partial View San Pham
-        [ChildActionOnly]
         // GET: SanPham
         public ActionResult SanPhamParticial()
         {
             return PartialView();
         }
-
-        [ChildActionOnly]
         // GET: SanPham
         public ActionResult SanPhamParticialDeal()
         {
@@ -39,10 +36,8 @@ namespace E_Commerce.Controllers
             {
                 return HttpNotFound();
             }
-
             return View(sp);
         }
-
 
         public ActionResult Shop(int? page)
         {

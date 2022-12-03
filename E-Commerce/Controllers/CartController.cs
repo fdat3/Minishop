@@ -173,23 +173,25 @@ namespace E_Commerce.Controllers
             return RedirectToAction("CartView");
         }
 
-        public ActionResult Order(KhachHang khH)
+        public ActionResult Order(KhachHang customer)
         {
             // Check cart
-
-            //Khoi tao bien KhachHang de ghi vao csdl
-            KhachHang kh = new KhachHang();
-
-
             if (Session["CartItem"] == null)
             {
                 return RedirectToAction("Index", "Home");
             }
-
+            //Khoi tao bien KhachHang de ghi vao csdl
+            KhachHang kh = new KhachHang();
             // ghi vao db voi khach hang co tai khoan
-            if (Session["TaiKhoan"] != null)
+            if (Session["TaiKhoan"] == null)
+            {
+                kh = customer;
+                db.KhachHangs.Add(kh);
+                db.SaveChanges();
+            } else
             {
                 ThanhVien tv = Session["TaiKhoan"] as ThanhVien;
+                kh.MaTV = tv.MaTV;
                 kh.TenKhachHang = tv.HoTen;
                 kh.DiaChi = tv.DiaChi;
                 kh.SoDienThoai = tv.SoDienThoai;
@@ -206,7 +208,6 @@ namespace E_Commerce.Controllers
             ddh.NgayDatHang = DateTime.Now;
             ddh.TinhTrangDH = false;
             ddh.DaThanhToan = false;
-            ddh.MaKhachHang = ddh.MaKhachHang;
             ddh.UuDai = 0;
             // Add to Database
             db.DonDatHangs.Add(ddh);
