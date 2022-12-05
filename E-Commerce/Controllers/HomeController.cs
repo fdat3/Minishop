@@ -63,7 +63,7 @@ namespace E_Commerce.Controllers
             {
                 if (Hash.validatePassword(tv.MatKhau, currentAccount.MatKhau))
                 {
-                    Session["TaiKhoan"] = tv;
+                    Session["TaiKhoan"] = currentAccount;
                     return RedirectToAction("Index");
                 }
             }
@@ -73,7 +73,7 @@ namespace E_Commerce.Controllers
         public ActionResult DangXuat()
         {
 
-            Session["TaiKhoan"] = null;
+            Session.Clear();//remove session
             return RedirectToAction("Index");
         }
     }

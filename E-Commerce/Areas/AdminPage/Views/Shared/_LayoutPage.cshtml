@@ -1,4 +1,5 @@
 ﻿<!DOCTYPE html>
+@using E_Commerce.Models
 
 <html>
 <head>
@@ -293,7 +294,11 @@
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <img src="~/Areas/Content/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                                <span class="hidden-xs">Alexander Pierce</span>
+                                @if (Session["TaiKhoan"] != null && Session["TaiKhoan"] != "")
+                                {
+                                    ThanhVien tv = (ThanhVien)Session["TaiKhoan"];
+                                    <span class="hidden-xs">Hi, @tv.TaiKhoan</span>
+                                }
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
@@ -349,9 +354,13 @@
                         <img src="~/Areas/Content/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                     </div>
                     <div class="pull-left info">
-                        <p>Alexander Pierce</p>
-                        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-                    </div>
+                        @if (Session["TaiKhoan"] != null && Session["TaiKhoan"] != "")
+                        {
+                            ThanhVien tv = (ThanhVien)Session["TaiKhoan"];
+                            <p>Hi, @tv.TaiKhoan</p>
+                        }
+                            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                        </div>
                 </div>
                 <!-- search form -->
                 <form action="#" method="get" class="sidebar-form">
@@ -383,7 +392,19 @@
                         <ul class="treeview-menu">
                             <li><a href="@Url.Action("NewProduct", "Product")"><i class="fa fa-circle-o"></i> Thêm sản phẩm mới</a></li>
                             <li><a href="@Url.Action("Index", "ListProduct")"><i class="fa fa-circle-o"></i>Danh sách sản phẩm</a></li>
-                            <li><a href="@Url.Action("Index", "Editor")"><i class="fa fa-circle-o"></i> Editors</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-edit"></i> <span>Quản lý bài viết</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="@Url.Action("Index", "Editor")"><i class="fa fa-circle-o"></i>Đăng Bài Viết</a></li>
+                            <li><a href="@Url.Action("Index", "Post")"><i class="fa fa-circle-o"></i>Danh sách bài viết chờ duyệt</a></li>
+
                         </ul>
                     </li>
                     <li class="treeview">
@@ -685,3 +706,5 @@
     <div class="daterangepicker dropdown-menu ltr opensleft"><div class="calendar left"><div class="daterangepicker_input"><input class="input-mini form-control" type="text" name="daterangepicker_start" value=""><i class="fa fa-calendar glyphicon glyphicon-calendar"></i><div class="calendar-time" style="display: none;"><div></div><i class="fa fa-clock-o glyphicon glyphicon-time"></i></div></div><div class="calendar-table"></div></div><div class="calendar right"><div class="daterangepicker_input"><input class="input-mini form-control" type="text" name="daterangepicker_end" value=""><i class="fa fa-calendar glyphicon glyphicon-calendar"></i><div class="calendar-time" style="display: none;"><div></div><i class="fa fa-clock-o glyphicon glyphicon-time"></i></div></div><div class="calendar-table"></div></div><div class="ranges"><ul><li data-range-key="Today">Today</li><li data-range-key="Yesterday">Yesterday</li><li data-range-key="Last 7 Days">Last 7 Days</li><li data-range-key="Last 30 Days">Last 30 Days</li><li data-range-key="This Month">This Month</li><li data-range-key="Last Month">Last Month</li><li data-range-key="Custom Range">Custom Range</li></ul><div class="range_inputs"><button class="applyBtn btn btn-sm btn-success" disabled="disabled" type="button">Apply</button> <button class="cancelBtn btn btn-sm btn-default" type="button">Cancel</button></div></div></div><div class="jvectormap-label"></div>
 </body>
 </html>
+
+<script src="https://cdn.ckeditor.com/ckeditor5/35.3.2/classic/ckeditor.js"></script>

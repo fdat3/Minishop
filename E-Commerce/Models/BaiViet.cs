@@ -19,5 +19,8 @@ namespace E_Commerce.Models
         public string TenTG { get; set; }
         public Nullable<System.DateTime> NgayDang { get; set; }
         public string HinhAnh { get; set; }
+        public Nullable<bool> daDuyet { get; set; }
+        public string ndTomtat { get; set; }
+        public string ndBaiViet { get; set; }
     }
 }

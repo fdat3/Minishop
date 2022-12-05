@@ -9,11 +9,14 @@
           <Key>
             <PropertyRef Name="MaBV" />
           </Key>
-          <Property Name="MaBV" Type="int" Nullable="false" />
+          <Property Name="MaBV" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TenBV" Type="nvarchar(max)" />
           <Property Name="TenTG" Type="nchar" MaxLength="10" />
           <Property Name="NgayDang" Type="datetime" />
           <Property Name="HinhAnh" Type="nvarchar(max)" />
+          <Property Name="daDuyet" Type="bit" />
+          <Property Name="ndTomtat" Type="nvarchar(max)" />
+          <Property Name="ndBaiViet" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="BinhLuan">
           <Key>
@@ -800,6 +803,9 @@
           <Property Name="TenTG" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="NgayDang" Type="DateTime" Precision="3" />
           <Property Name="HinhAnh" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="daDuyet" Type="Boolean" />
+          <Property Name="ndTomtat" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ndBaiViet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -970,6 +976,9 @@
           <EntitySetMapping Name="BaiViets">
             <EntityTypeMapping TypeName="QuanLySanPhamModel.BaiViet">
               <MappingFragment StoreEntitySet="BaiViet">
+                <ScalarProperty Name="ndBaiViet" ColumnName="ndBaiViet" />
+                <ScalarProperty Name="ndTomtat" ColumnName="ndTomtat" />
+                <ScalarProperty Name="daDuyet" ColumnName="daDuyet" />
                 <ScalarProperty Name="HinhAnh" ColumnName="HinhAnh" />
                 <ScalarProperty Name="NgayDang" ColumnName="NgayDang" />
                 <ScalarProperty Name="TenTG" ColumnName="TenTG" />

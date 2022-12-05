@@ -188,6 +188,7 @@
     <Compile Include="Areas\AdminPage\Controllers\LoginController.cs" />
     <Compile Include="Areas\AdminPage\Controllers\MailController.cs" />
     <Compile Include="Areas\AdminPage\Controllers\PaymentController.cs" />
+    <Compile Include="Areas\AdminPage\Controllers\PostController.cs" />
     <Compile Include="Areas\AdminPage\Controllers\ProductController.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
@@ -7847,10 +7848,11 @@
     <Content Include="Areas\AdminPage\Views\Editor\Index.cshtml" />
     <Content Include="Areas\AdminPage\Views\ListProduct\Index.cshtml" />
     <Content Include="Areas\AdminPage\Views\Product\NewProduct.cshtml" />
-    <Content Include="Areas\AdminPage\Views\Login\Index.cshtml" />
     <Content Include="Areas\AdminPage\Views\Chart\Index.cshtml" />
     <Content Include="Areas\AdminPage\Views\Mail\Index.cshtml" />
+    <Content Include="Areas\AdminPage\Views\Post\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\FacebookLogin.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -7902,6 +7904,9 @@
     <Content Include="Views\Cart\EditCart.cshtml" />
     <Content Include="Views\Partial\SearchBox.cshtml" />
     <Content Include="Views\SanPham\XemChiTiet.cshtml" />
+    <Content Include="Views\FacebookLogin\Login.cshtml" />
+    <Content Include="Views\FacebookLogin\Index.cshtml" />
+    <Content Include="Views\Blog\blogDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\AdminPage\Models\" />

@@ -173,7 +173,7 @@ namespace E_Commerce.Controllers
             return RedirectToAction("CartView");
         }
 
-        public ActionResult Order(KhachHang customer)
+        public ActionResult Order(KhachHang kh)
         {
             // Check cart
             if (Session["CartItem"] == null)
@@ -181,11 +181,9 @@ namespace E_Commerce.Controllers
                 return RedirectToAction("Index", "Home");
             }
             //Khoi tao bien KhachHang de ghi vao csdl
-            KhachHang kh = new KhachHang();
             // ghi vao db voi khach hang co tai khoan
             if (Session["TaiKhoan"] == null)
             {
-                kh = customer;
                 db.KhachHangs.Add(kh);
                 db.SaveChanges();
             } else
@@ -203,12 +201,14 @@ namespace E_Commerce.Controllers
             }
 
             // Call Database
-            DonDatHang ddh = new DonDatHang();
-            ddh.MaKhachHang = kh.MaKhachHang;
-            ddh.NgayDatHang = DateTime.Now;
-            ddh.TinhTrangDH = false;
-            ddh.DaThanhToan = false;
-            ddh.UuDai = 0;
+            DonDatHang ddh = new DonDatHang
+            {
+                MaKhachHang = kh.MaKhachHang,
+                NgayDatHang = DateTime.Now,
+                TinhTrangDH = false,
+                DaThanhToan = false,
+                UuDai = 0
+            };
             // Add to Database
             db.DonDatHangs.Add(ddh);
             //Sync
@@ -218,12 +218,14 @@ namespace E_Commerce.Controllers
             List<CartItem> lstCart = GetCart();
             foreach (var item in lstCart)
             {
-                ChiTietDonDatHang ctd = new ChiTietDonDatHang();
-                ctd.MaDDH = ddh.MaDDH;
-                ctd.MaSP = item.MaSP;
-                ctd.TenSP = item.TenSP;
-                ctd.SoLuong = item.SoLuong;
-                ctd.DonGia = item.DonGia;
+                ChiTietDonDatHang ctd = new ChiTietDonDatHang
+                {
+                    MaDDH = ddh.MaDDH,
+                    MaSP = item.MaSP,
+                    TenSP = item.TenSP,
+                    SoLuong = item.SoLuong,
+                    DonGia = item.DonGia
+                };
                 //Add to Database
                 db.ChiTietDonDatHangs.Add(ctd);
             }

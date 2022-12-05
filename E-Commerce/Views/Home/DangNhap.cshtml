@@ -54,8 +54,129 @@
         </div>
         @ViewBag.ErrorMessage
         // QR Scan and Another Login Method
+        <div id="fb-root"></div>
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v15.0&appId=3360668697487138&autoLogAppEvents=1" nonce="hsFatXbS"></script>
+        <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div>
+
     }
 </div>
+
+
+<script>
+    $(document).ready(function () {
+        'use strict';
+
+        // Load the SDK asynchronously
+        (function (d) {
+            var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement('script'); js.id = id; js.async = true;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            ref.parentNode.insertBefore(js, ref);
+
+        }(document));
+
+        window.fbAsyncInit = function () {
+
+            FB.init({
+
+                appId: '3360668697487138', // App ID
+                status: true, // check login status
+                cookie: true, // enable cookies to allow the server to access the session
+                xfbml: true,  // parse XFBML
+                version: 'v15.0'
+
+
+            });
+        };
+
+
+
+
+        function Login() {
+            FB.login(function (response) {
+                if (response.authResponse) {
+                    getFacebookUserInfo();
+                } else {
+                    console.log('User cancelled login or did not fully authorize.');
+                }
+            }, {
+                scope: 'email,user_name,address,phone'
+            });
+
+
+        }
+
+
+
+
+        function getFacebookUserInfo() {
+            FB.api('/me?fields=email,name', function (response) {
+                var token = $('input[name="__RequestVerificationToken"]').val();
+                $.ajax({
+                    url: "/Home/DangNhap",
+                    headers: { "__RequestVerificationToken": token },
+                    type: "POST",
+                    data: { 'name': response.name, 'email': response.email },
+                    success: function (data) {
+                        if (data.success === "True") {
+
+
+                            location.reload();
+
+
+                        }
+                    },
+                    error: function (data) {
+
+
+                        console.log(data);
+
+
+                    }
+                })
+            });
+        }
+
+        function Logout() {
+
+
+            FB.logout(function () { document.location.reload(); });
+
+
+        }
+
+        $('.lbtSignInFacebook').click(function () {
+
+
+            Login();
+
+
+        })
+
+        $('.lbtLogOutFacebook').click(function () {
+            Logout();
+            var token = $('input[name="__RequestVerificationToken"]').val();
+            $.ajax({
+                url: "/Home/DangXuat",
+                headers: { "__RequestVerificationToken": token },
+                type: "POST",
+                success: function (data) {
+                    if (data.success === "True") {
+
+
+                        location.reload();
+
+
+                    }
+                },
+                error: function (data) {
+                    console.log(data);
+                }
+            })
+        })
+    });
+</script>
 
 
 
