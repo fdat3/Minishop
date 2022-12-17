@@ -33,13 +33,13 @@ namespace E_Commerce.Areas.AdminPage.Controllers
                 if (Hash.validatePassword(tv.MatKhau, currentAccount.MatKhau))
                 {
                     Session["TaiKhoan"] = tv;
-                    return RedirectToAction("Index", "Dashboard", new { Area = "AdminPage" });
+                    return RedirectToAction("Index", "Stats", new { Area = "AdminPage" });
                 } else
                 {
                     return RedirectToAction("Index", "Login", new { Area = "AdminPage" });
                 }
             }
-            return RedirectToAction("Index", "Dashboard", new { Area = "AdminPage"});
+            return RedirectToAction("Index", "Stats", new { Area = "AdminPage"});
         }
 
         public ActionResult DangXuat()

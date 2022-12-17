@@ -30,28 +30,37 @@ namespace E_Commerce.Areas.AdminPage.Controllers
         }
 
         [HttpPost]
-        public ActionResult NewProduct(HttpPostedFileBase HinhAnh, SanPham sp)
+        public ActionResult NewProduct(HttpPostedFileBase[] HinhAnh, SanPham sp)
         {
-            //Check img already
-            if (HinhAnh.ContentLength > 0)
+            int err = 0;
+            for(int i = 0; i < HinhAnh.Count(); i++)
             {
-                //Take img name
-                var fileName = Path.GetFileName(HinhAnh.FileName);
-                //Take img and move to img's folder
-                var path = Path.Combine(Server.MapPath("~/Content/images/SanPham"), fileName);
-                //If img already, noti to user
-                if (System.IO.File.Exists(path))
+                if (HinhAnh[i] != null)
                 {
-                    ViewBag.upload = "Image already !";
-                }
-                else
-                {
-                    //Them anh vao thu muc
-                    HinhAnh.SaveAs(path);
-                    sp.HinhAnh = fileName;
-                    return View();
+                    if (HinhAnh[i].ContentLength > 0)
+                    {
+                        if (HinhAnh[i].ContentType != "image/jpeg" && HinhAnh[i].ContentType != "image/png")
+                        {
+                            ViewBag.upload = "Error";
+                            err++;
+                        }
+                        else
+                        {
+                            var fileName = Path.GetFileName(HinhAnh[0].FileName);
+                            //Take img and move to img's folder
+                            var path = Path.Combine(Server.MapPath("~/Content/images/SanPham"), fileName);
+                            sp.HinhAnh = fileName;
+                            //Check img already
+                            if (System.IO.File.Exists(path))
+                            {
+                                ViewBag.already = "Image Exist";
+                                err++;
+                            }
+                        }
+                    }
                 }
             }
+           
             db.SanPhams.Add(sp);
             db.SaveChanges();
             return RedirectToAction("Index", "Dashboard");

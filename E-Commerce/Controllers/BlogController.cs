@@ -2,9 +2,11 @@
 using PagedList;
 using System;
 using System.Collections.Generic;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
 
 namespace E_Commerce.Controllers
 {
@@ -12,31 +14,24 @@ namespace E_Commerce.Controllers
     {
         QuanLySanPhamEntities db = new QuanLySanPhamEntities();
         // GET: Blog
-        public ActionResult Index(int? page)
+        public ActionResult Index()
         {
-            var lPost = db.BaiViets;
+            List<BaiViet> lPost = db.BaiViets.ToList();
             //ViewBag.lsSP = lsSP;
             //List<SanPham> lsp = Product.getProduct();
             //Number of item in 1 page
-            int PageSize = 9;
-            int PageNumber = (page ?? 1);
 
-            return View(lPost.OrderBy(n => n.MaBV).ToPagedList(PageNumber, PageSize));
+            return View("Index", lPost);
         }
 
-        public ActionResult blogDetail(int? maBV)
+        public ActionResult blogDetail(int maBV)
         {
-            if(maBV == null)
+            if (maBV != null)
             {
-                return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
+                BaiViet bv = db.BaiViets.Where(n => n.MaBV.Equals(maBV)).First<BaiViet>();
+                ViewData["post"] = bv;
             }
-            BaiViet post = db.BaiViets.SingleOrDefault(n => n.MaBV == maBV);
-            if(post == null)
-            {
-                return HttpNotFound();
-
-            }
-            return View(post);
+            return View("blogDetail");
         }
     }
 }

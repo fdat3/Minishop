@@ -1,0 +1,158 @@
+﻿@using E_Commerce.Models;
+@model DonDatHang
+
+@{
+    ViewBag.Title = "DuyetDH";
+    Layout = "~/Areas/AdminPage/Views/Shared/_LayoutPage.cshtml";
+}
+
+@{
+    IEnumerable<ChiTietDonDatHang> lstChiTiet = (IEnumerable<ChiTietDonDatHang>)ViewBag.lstChiTiet; }
+}
+
+<div class="content-wrapper">
+    <div class="col-md-12">
+        @using (Html.BeginForm())
+        {
+            <section class="invoice">
+                <!-- title row -->
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h2 class="page-header">
+                            Chi tiết đơn đặt hàng của khách hàng <b>@Model.KhachHang.TenKhachHang</b>
+                            <small class="pull-right">@Model.NgayDatHang</small>
+                        </h2>
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- info row -->
+                <div class="row invoice-info">
+                    <div class="col-sm-4 invoice-col">
+                        Địa chỉ shop
+                        <address>
+                            <strong>MiniShop, Inc.</strong><br>
+                            Song Hành, Trường Chinh<br>
+                            Quận 12, Thành phố Hồ Chí Minh<br>
+                            Phone: 0819995282<br>
+                            Email: minishop@gmail.com
+                        </address>
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-sm-4 invoice-col">
+                        Địa chỉ khách hàng
+                        <address>
+                            <strong>@Model.KhachHang.TenKhachHang</strong><br>
+                            @Model.KhachHang.DiaChi<br>
+                            Phone: @Model.KhachHang.SoDienThoai<br>
+                            Email: @Model.KhachHang.Email
+                        </address>
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-sm-4 invoice-col">
+                        <b>Mã đơn đặt hàng: @Model.MaDDH.ToString("###")
+                                            @Html.Hidden("MaDDH", Model.MaDDH)
+                            </b><br>
+                        <br>
+                        <b>Ngày đặt hàng:</b> @Model.NgayDatHang<br>
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+                <!-- Table row -->
+                <div class="row">
+                    <div class="col-xs-12 table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Số lượng</th>
+                                    <th>Mã chi tiết sản phẩm</th>
+                                    <th>Tên Sản Phẩm</th>
+                                    <th>Tên Nhà sản xuất</th>
+                                    <th>Giá</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in lstChiTiet)
+                                {
+                                    <tr>
+                                        <td>@item.SoLuong</td>
+                                        <td>@item.MaChiTietDDH</td>
+                                        <td>@item.TenSP</td>
+                                        <td>@item.SanPham.NhaSanXuat.TenNSX</td>
+                                        <td>@item.DonGia.Value.ToString("#,##") VND</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+
+                <div class="row">
+                    <!-- /.col -->
+                    <div class="col-xs-6">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <th> Tổng số lượng: </th>
+                                        <td>@Model.ChiTietDonDatHangs.Sum(n => n.SoLuong) sản phẩm</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Shipping:</th>
+                                        <td>FREE</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Tổng giá tiền: </th>
+                                        <td>@Model.ChiTietDonDatHangs.Sum(n => n.SanPham.DonGia).Value.ToString("#,##") VND</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-6">
+                        Khách đã thanh toán: @Html.EditorFor(n => n.DaThanhToan)
+                        <br />
+                        Đơn hàng đang được giao: @Html.EditorFor(n => n.TinhTrangDH)
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+                <!-- this row will not appear when printing -->
+                <div class="row no-print">
+                    <div class="col-xs-12">
+                        <a href="invoice-print.html" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
+                        <button type="submit" class="btn btn-success pull-right" id="btnSavePaymet">
+                            <i class="fa fa-credit-card"></i> Submit Payment
+                        </button>
+                        <a href="@Url.Action("exportPdf", "QuanLyDonHang")">Generate PDF</a>
+                        <button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;" id="btnPrintPayment">
+                            <i class="fa fa-download"></i> Generate PDF
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+        }
+    </div>
+</div>
+
+<script>
+    $("#btnPrintPayment").click(function () {
+        var content = "<table>" + $("#table").html();
+        printPayment(content);
+    });
+
+    function printPayment(content) {
+        var printWindow = window.open('', '', 'height = 400px; width = 800px');
+        printWindow.document.write('<html><head><title>DIV Contents</title>');
+        printWindow.document.write('</head><body>');
+        printWindow.document.write(content);
+        printWindow.document.write('</body></html>');
+        printWindow.document.close();
+        printWindow.print();
+    }
+</script>
+

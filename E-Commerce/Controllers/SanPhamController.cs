@@ -25,18 +25,33 @@ namespace E_Commerce.Controllers
             return PartialView();
         }
         //Trang xem san pham chi tiet
-        public ActionResult XemChiTiet(int? id, string tensp)
+        [HttpGet]
+        public ActionResult XemChiTiet(int? id, BinhLuan review)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
             }
-            SanPham sp = db.SanPhams.SingleOrDefault(n => n.MaSP == id);
-            if (sp == null)
+            var product = db.SanPhams.Find(id);
+            if (product == null)
             {
                 return HttpNotFound();
             }
-            return View(sp);
+            //Add comment
+            review.MaSP = product.MaSP;
+            ViewData["product"] = product;
+            return View("XemChiTiet", review);
+        }
+        [HttpPost]
+        public ActionResult postComment(BinhLuan review, double? rating)
+        {
+            ThanhVien tv = Session["TaiKhoan"] as ThanhVien;
+            review.ThoiGian = DateTime.Now;
+            review.MaTV = tv.MaTV;
+            review.Rating = rating;
+            db.BinhLuans.Add(review);
+            db.SaveChanges();
+            return RedirectToAction("XemChiTiet", "SanPham", new { id = review.MaSP });
         }
 
         public ActionResult Shop(int? page)

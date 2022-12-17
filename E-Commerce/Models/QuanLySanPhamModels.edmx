@@ -27,6 +27,7 @@
           <Property Name="MaTV" Type="int" />
           <Property Name="MaSP" Type="int" />
           <Property Name="ThoiGian" Type="datetime" />
+          <Property Name="Rating" Type="float" />
         </EntityType>
         <EntityType Name="ChiTietDonDatHang">
           <Key>
@@ -411,6 +412,7 @@
           <NavigationProperty Name="SanPham" Relationship="Self.FK_BinhLuan_SanPham" FromRole="BinhLuan" ToRole="SanPham" />
           <NavigationProperty Name="ThanhVien" Relationship="Self.FK_BinhLuan_ThanhVien" FromRole="BinhLuan" ToRole="ThanhVien" />
           <Property Name="ThoiGian" Type="DateTime" Precision="3" />
+          <Property Name="Rating" Type="Double" />
         </EntityType>
         <EntityType Name="ChiTietDonDatHang">
           <Key>
@@ -826,6 +828,7 @@
           <EntitySetMapping Name="BinhLuans">
             <EntityTypeMapping TypeName="QuanLySanPhamModel.BinhLuan">
               <MappingFragment StoreEntitySet="BinhLuan">
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
                 <ScalarProperty Name="ThoiGian" ColumnName="ThoiGian" />
                 <ScalarProperty Name="MaBL" ColumnName="MaBL" />
                 <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />

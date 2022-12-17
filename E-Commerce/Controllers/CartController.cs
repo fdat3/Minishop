@@ -90,7 +90,7 @@ namespace E_Commerce.Controllers
             CartItem CheckItem = lstCart.SingleOrDefault(n => n.MaSP == MaSP);
 
             lstCart.Remove(CheckItem);
-            return View("CartView");
+            return View();
         }
 
         // Phuong thuc tong so tien phai thanh toan

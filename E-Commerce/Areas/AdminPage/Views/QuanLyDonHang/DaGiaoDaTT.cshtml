@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "DaGiaoDaTT";
+    Layout = "~/Areas/AdminPage/Views/Shared/_LayoutPage.cshtml";
+    WebGrid grid = new WebGrid(source: Model, rowsPerPage: 20);
+}
+
+<div class="content-wrapper">
+    <div class="col-md-12">
+        <h2>Quản lý đơn hàng</h2>
+
+        @grid.GetHtml(
+            tableStyle: "divTable",
+            headerStyle: "gridHead",
+            footerStyle: "gridFooter",
+            rowStyle: "gridRow",
+            alternatingRowStyle: "gridAltRow",
+            columns: grid.Columns(
+            grid.Column("MaDDH", header: "Mã Đơn hàng"),
+                grid.Column("MaKhachHang", header: "Họ tên khách hàng", format: p => p.MaKhachHang != null ? p.KhachHang.TenKhachHang : ""),
+                grid.Column("NgayDatHang", header: "Ngày Đặt"),
+                grid.Column("TinhTrangDH", header: "Tình trạng đơn hàng"),
+                grid.Column("NgayGiao", header: "Ngày Giao"),
+                grid.Column("DaThanhToan", header: "Đã Thanh Toán"),
+                grid.Column("DaXoa", header: "Đã hủy")
+        ))
+    </div>
+</div>
+
+<style>
+    .nav > li {
+        background: rgba(0, 0, 0, .5);
+    }
+
+    .divTable {
+        width: 100%;
+        border: 1px solid #999999;
+    }
+
+        .divTable td {
+            border: 1px solid #999999;
+        }
+
+    .gridHead {
+        background-color: green;
+    }
+
+        .gridHead > th > a {
+            color: #fff;
+        }
+
+    .gridFooter {
+        font-weight: bold;
+    }
+
+    .divTable a {
+        color: blue;
+    }
+</style>
+
+

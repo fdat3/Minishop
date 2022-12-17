@@ -77,7 +77,7 @@
 
         <header class="main-header">
             <!-- Logo -->
-            <a href="index2.html" class="logo">
+            <a href="@Url.Action("Index", "Stats")" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini"><b>A</b>LT</span>
                 <!-- logo for regular state and mobile devices -->
@@ -390,8 +390,22 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="@Url.Action("NewProduct", "Product")"><i class="fa fa-circle-o"></i> Thêm sản phẩm mới</a></li>
-                            <li><a href="@Url.Action("Index", "ListProduct")"><i class="fa fa-circle-o"></i>Danh sách sản phẩm</a></li>
+                            <li><a href="@Url.Action("NewProduct", "Product")"><i class="fa fa-circle-o"></i>Thêm sản phẩm mới</a></li>
+                            <li><a href="@Url.Action("Index", "NhapHang")"><i class="fa fa-circle-o"></i>Nhập thêm sản phẩm mới</a></li>
+
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-edit"></i> <span>Quản lý đơn hàng</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="@Url.Action("ChuaThanhToan", "QuanLyDonHang")"><i class="fa fa-circle-o"></i>Đơn hàng chưa thanh toán</a></li>
+                            <li><a href="@Url.Action("DaGiaoDaTT", "QuanLyDonHang")"><i class="fa fa-circle-o"></i>Đơn hàng đã thanh toán</a></li>
+
                         </ul>
                     </li>
                     <li class="treeview">
@@ -405,41 +419,6 @@
                             <li><a href="@Url.Action("Index", "Editor")"><i class="fa fa-circle-o"></i>Đăng Bài Viết</a></li>
                             <li><a href="@Url.Action("Index", "Post")"><i class="fa fa-circle-o"></i>Danh sách bài viết chờ duyệt</a></li>
 
-                        </ul>
-                    </li>
-                    <li class="treeview">
-                        <a href="@Url.Action("Index", "Payment")">
-                            <i class="fa fa-table"></i> <span>Thanh toán</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="@Url.Action("Index", "Payment")"><i class="fa fa-circle-o"></i> Quản lý thanh toán</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="treeview">
-                        <a href="@Url.Action("Index", "Chart")">
-                            <i class="fa fa-table"></i> <span>Thống kê</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="@Url.Action("Index", "Chart")"><i class="fa fa-circle-o"></i>Thống kê</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="treeview">
-                        <a href="@Url.Action("Index", "Mail")">
-                            <i class="fa fa-table"></i> <span>Thống kê</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-envelope"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="@Url.Action("Index", "Mail")"><i class="fa fa-circle-o"></i>Thống kê</a></li>
                         </ul>
                     </li>
                 </ul>

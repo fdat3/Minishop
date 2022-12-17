@@ -18,6 +18,26 @@ namespace E_Commerce
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            Application["PageView"] = 0;
+            Application["UserOnline"] = 0;
+        }
+
+        protected void Session_Start()
+        {
+            Application.Lock();
+            Application["PageView"] = (int)Application["PageView"] + 1;
+            Application["UserOnline"] = (int)Application["UserOnline"] + 1;
+
+            Application.UnLock();
+        }
+
+        protected void Session_End()
+        {
+            Application.Lock();
+            Application["UserOnline"] = (int)Application["UserOnline"] - 1;
+            Application.UnLock();
+
         }
     }
 }

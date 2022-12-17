@@ -1,35 +1,25 @@
 ﻿@using E_Commerce.Models
+@model BinhLuan
+
 @{
     ViewBag.Title = "XemChiTiet";
+    SanPham productDetail = ViewData["product"] as SanPham;
     Layout = "~/Views/Layout/ProductLayout.cshtml";
 }
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css" rel="stylesheet" />
 
 
 <div class="row">
     <div class="col-lg-6 mb-5 ftco-animate fadeInUp ftco-animated">
-        <a href=@Url.Content("~/Content/images/SanPham/" + Model.HinhAnh) class="image-popup prod-img-bg"><img src=@Url.Content("~/Content/images/SanPham/" + Model.HinhAnh) class="img-fluid" alt="Colorlib Template"></a>
+        <a href=@Url.Content("~/Content/images/SanPham/" + productDetail.HinhAnh) class="image-popup prod-img-bg"><img src=@Url.Content("~/Content/images/SanPham/" + productDetail.HinhAnh) class="img-fluid" alt="Colorlib Template"></a>
     </div>
     <div class="col-lg-6 product-details pl-md-5 ftco-animate fadeInUp ftco-animated">
-        <h3>@Model.TenSP</h3>
-        <div class="rating d-flex">
-            <p class="text-left mr-4">
-                <a href="#" class="mr-2">5.0</a>
-                <a href="#"><span class="ion-ios-star-outline"></span></a>
-                <a href="#"><span class="ion-ios-star-outline"></span></a>
-                <a href="#"><span class="ion-ios-star-outline"></span></a>
-                <a href="#"><span class="ion-ios-star-outline"></span></a>
-                <a href="#"><span class="ion-ios-star-outline"></span></a>
-            </p>
-            <p class="text-left mr-4">
-                <a href="#" class="mr-2" style="color: #000;">@Model.NhaSanXuat.TenNSX <span style="color: #bbb;"></span></a>
-            </p>
-            <p class="text-left">
-                <a href="#" class="mr-2" style="color: #000;"> @Model.SoLanMua <span style="color: #bbb;">Sản phẩm đã bán ra</span></a>
-            </p>
-        </div>
-        <p class="price"><span>@Model.DonGia.ToString("#,##") VND</span></p>
-        <p>@Model.ThongTin</p>
+        <h3>@productDetail.TenSP</h3>
+        <p class="price"><span>@productDetail.DonGia.Value.ToString("#,##") VND</span></p>
+        <p>@productDetail.ThongTin</p>
         <div class="row mt-4">
             <div class="col-md-6">
                 <div class="form-group d-flex">
@@ -51,7 +41,7 @@
                         <i class="ion-ios-remove"></i>
                     </button>
                 </span>
-                <input type="text" id="quantity" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">
+                <input type="text" id="quantity" name="quantity" data-cart="quantity" class="quantity form-control input-number" value="1" min="1" max="100">
                 <span class="input-group-btn ml-2">
                     <button type="button" class="quantity-right-plus btn" data-type="plus" data-field="">
                         <i class="ion-ios-add"></i>
@@ -60,11 +50,11 @@
             </div>
             <div class="w-100"></div>
             <div class="col-md-12">
-                <p style="color: #000;">Số lượng hàng còn: @Model.SoLuongTonKho</p>
+                <p style="color: #000;">Số lượng hàng còn: @productDetail.SoLuongTonKho</p>
             </div>
         </div>
         <p>
-            @Ajax.ActionLink("AddCart", "AddCart", "Cart", new { @MaSP = Model.MaSP}, new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "Cart", InsertionMode = InsertionMode.Replace }, new { @class = "btn btn-black py-3 px-5 mr-2" })
+            @Ajax.ActionLink("AddCart", "AddCart", "Cart", new { @MaSP = Model.MaSP }, new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "Cart", InsertionMode = InsertionMode.Replace }, new { @class = "btn btn-black py-3 px-5 mr-2" })
             <a href="cart.html" class="btn btn-primary py-3 px-5">Buy now</a>
         </p>
     </div>
@@ -86,138 +76,63 @@
 
                 <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel" aria-labelledby="day-1-tab">
                     <div class="p-4">
-                        <p>@Model.MoTa</p>
+                        <p>@productDetail.MoTa</p>
                     </div>
                 </div>
 
                 <div class="tab-pane fade" id="v-pills-2" role="tabpanel" aria-labelledby="v-pills-day-2-tab">
                     <div class="p-4">
-                        <p>@Model.NhaSanXuat.ThongTin</p>
+                        <p>@productDetail.NhaSanXuat.ThongTin</p>
                     </div>
                 </div>
                 <div class="tab-pane fade" id="v-pills-3" role="tabpanel" aria-labelledby="v-pills-day-3-tab">
                     <div class="row p-4">
                         <div class="col-md-7">
-                            <h3 class="mb-4">@Model.LuotBinhLuan bình luận</h3>
-                            <div class="review">
-                                <div class="user-img" style="background-image: url(images/person_1.jpg)"></div>
-                                <div class="desc">
-                                    <h4>
-                                        <span class="text-left">Jacob Webb</span>
-                                        <span class="text-right">14 March 2018</span>
-                                    </h4>
-                                    <p class="star">
-                                        <span>
-                                            <i class="ion-ios-star-outline"></i>
-                                            <i class="ion-ios-star-outline"></i>
-                                            <i class="ion-ios-star-outline"></i>
-                                            <i class="ion-ios-star-outline"></i>
-                                            <i class="ion-ios-star-outline"></i>
-                                        </span>
-                                        <span class="text-right"><a href="#" class="reply"><i class="icon-reply"></i></a></span>
-                                    </p>
-                                    <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrov</p>
-                                </div>
-                            </div>
-                            <div class="review">
-                                <div class="user-img" style="background-image: url(images/person_2.jpg)"></div>
-                                <div class="desc">
-                                    <h4>
-                                        <span class="text-left">Jacob Webb</span>
-                                        <span class="text-right">14 March 2018</span>
-                                    </h4>
-                                    <p class="star">
-                                        <span>
-                                            <i class="ion-ios-star-outline"></i>
-                                            <i class="ion-ios-star-outline"></i>
-                                            <i class="ion-ios-star-outline"></i>
-                                            <i class="ion-ios-star-outline"></i>
-                                            <i class="ion-ios-star-outline"></i>
-                                        </span>
-                                        <span class="text-right"><a href="#" class="reply"><i class="icon-reply"></i></a></span>
-                                    </p>
-                                    <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrov</p>
-                                </div>
-                            </div>
-                            <div class="review">
-                                <div class="user-img" style="background-image: url(images/person_3.jpg)"></div>
-                                <div class="desc">
-                                    <h4>
-                                        <span class="text-left">Jacob Webb</span>
-                                        <span class="text-right">14 March 2018</span>
-                                    </h4>
-                                    <p class="star">
-                                        <span>
-                                            <i class="ion-ios-star-outline"></i>
-                                            <i class="ion-ios-star-outline"></i>
-                                            <i class="ion-ios-star-outline"></i>
-                                            <i class="ion-ios-star-outline"></i>
-                                            <i class="ion-ios-star-outline"></i>
-                                        </span>
-                                        <span class="text-right"><a href="#" class="reply"><i class="icon-reply"></i></a></span>
-                                    </p>
-                                    <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrov</p>
-                                </div>
-                            </div>
+                            @if (Session["TaiKhoan"] == null)
+                            {
+                                <a href="@Url.Action("DangNhap", "Home")">Đăng nhập để bình luận !</a>
+                            }
+                            else
+                            {
+                                using (Html.BeginForm("postComment", "SanPham", FormMethod.Post))
+                                {
+                                    <h3 class="mb-4">Hãy để lại bình luận !</h3>
+                                    @Html.TextAreaFor(model => model.NoiDung, new { cols = 50, rows = 5 })
+                                    <br />
+                                    <div id="rateYo"></div>
+                                    <input type="hidden" id="rating" name="rating" />
+                                    <br />
+                                    <input class="btn btn-black py-3 px-5 mr-2" type="submit" value="Bình luận" />
+                                    @Html.HiddenFor(n => n.MaSP)
+                                }
+                            }
+
                         </div>
                         <div class="col-md-4">
                             <div class="rating-wrap">
-                                <h3 class="mb-4">@Model.LuotBinhChon lượt bình chọn</h3>
-                                <p class="star">
-                                    <span>
-                                        <i class="ion-ios-star-outline"></i>
-                                        <i class="ion-ios-star-outline"></i>
-                                        <i class="ion-ios-star-outline"></i>
-                                        <i class="ion-ios-star-outline"></i>
-                                        <i class="ion-ios-star-outline"></i>
-                                        (98%)
-                                    </span>
-                                    <span>20 Reviews</span>
-                                </p>
-                                <p class="star">
-                                    <span>
-                                        <i class="ion-ios-star-outline"></i>
-                                        <i class="ion-ios-star-outline"></i>
-                                        <i class="ion-ios-star-outline"></i>
-                                        <i class="ion-ios-star-outline"></i>
-                                        <i class="ion-ios-star-outline"></i>
-                                        (85%)
-                                    </span>
-                                    <span>10 Reviews</span>
-                                </p>
-                                <p class="star">
-                                    <span>
-                                        <i class="ion-ios-star-outline"></i>
-                                        <i class="ion-ios-star-outline"></i>
-                                        <i class="ion-ios-star-outline"></i>
-                                        <i class="ion-ios-star-outline"></i>
-                                        <i class="ion-ios-star-outline"></i>
-                                        (98%)
-                                    </span>
-                                    <span>5 Reviews</span>
-                                </p>
-                                <p class="star">
-                                    <span>
-                                        <i class="ion-ios-star-outline"></i>
-                                        <i class="ion-ios-star-outline"></i>
-                                        <i class="ion-ios-star-outline"></i>
-                                        <i class="ion-ios-star-outline"></i>
-                                        <i class="ion-ios-star-outline"></i>
-                                        (98%)
-                                    </span>
-                                    <span>0 Reviews</span>
-                                </p>
-                                <p class="star">
-                                    <span>
-                                        <i class="ion-ios-star-outline"></i>
-                                        <i class="ion-ios-star-outline"></i>
-                                        <i class="ion-ios-star-outline"></i>
-                                        <i class="ion-ios-star-outline"></i>
-                                        <i class="ion-ios-star-outline"></i>
-                                        (98%)
-                                    </span>
-                                    <span>0 Reviews</span>
-                                </p>
+                                <h3 class="mb-4">Bình luận</h3>
+                                <div class="desc">
+                                    @{ int i = 1;}
+                                    @foreach (var review in productDetail.BinhLuans)
+                                    {
+                                        <p>@review.ThoiGian</p>
+                                        <strong>@review.ThanhVien.TaiKhoan</strong>
+                                        <p class="star">
+                                            <script>
+                                                $(function () {
+
+                                                    $("#@("rating" + i)").rateYo({
+                                                        rating: @review.Rating,
+                                                        readOnly: true
+                                                    });
+                                                });
+                                            </script>
+                                            <div id="@("rating" + i)"></div>
+                                        </p>
+                                        <p>@review.NoiDung</p>
+                                        i++;
+                                    }
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -226,3 +141,26 @@
         </div>
     </div>
 </div>
+
+<script src="~/Content/js/jquery.rateyo.min.js"></script>
+<link rel="stylesheet" href="~/Content/css/jquery.rateyo.css" />
+<script src="~/Content/js/jquery.rateyo.js"></script>
+
+<script>
+    /* Javascript */
+
+    $(function () {
+
+        $("#rateYo").rateYo({
+            rating: 0,
+            numStars: 5,
+            maxValue: 5,
+            halfStar: true,
+            onChange: function (rating, rateYoInstance) {
+                $('#rating').val(rating);
+            }
+        });
+    });
+</script>
+
+

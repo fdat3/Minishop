@@ -1,6 +1,6 @@
 ﻿@using E_Commerce.Models
-@using PagedList.Mvc
-@model  PagedList.IPagedList<BaiViet>
+
+@model  IEnumerable<BaiViet>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Layout/Blog.cshtml";
@@ -15,7 +15,7 @@
                     {
                         <div class="col-md-12 d-flex ftco-animate fadeInUp ftco-animated">
                             <div class="blog-entry align-self-stretch d-md-flex">
-                                <a href="#" class="block-20" style="background-image: url('/Content/images/image_1.jpg');">
+                                <a href="#" class="block-20" style="background-image: url('/Content/images/@item.HinhAnh');">
                                 </a>
                                 <div class="text d-block pl-md-4">
                                     <div class="meta mb-3">
@@ -30,15 +30,6 @@
                             </div>
                         </div>
                     }
-                </div>
-                <div class="row mt-5">
-                    <div class="col text-center">
-                        <div class="block-27">
-                            <ul>
-                                <li>@Html.PagedListPager(Model, page => Url.Action("Index", new { page = page, @lPost = ViewBag.lPost }))</li>
-                            </ul>
-                        </div>
-                    </div>
                 </div>
             </div> <!-- .col-md-8 -->
         </div>

@@ -19,6 +19,7 @@ namespace E_Commerce.Models
         public Nullable<int> MaTV { get; set; }
         public Nullable<int> MaSP { get; set; }
         public Nullable<System.DateTime> ThoiGian { get; set; }
+        public Nullable<double> Rating { get; set; }
     
         public virtual SanPham SanPham { get; set; }
         public virtual ThanhVien ThanhVien { get; set; }
